@@ -52,6 +52,15 @@
         "year": 2008,
         "review_status": "passages_checked",
         "review_note": "2026-11-08: main-text Table 1, Results, Discussion and Methods checked. Supplemental tables and raw data not reviewed."
+      },
+      {
+        "id": "S-DEVRIES2015",
+        "url": "https://doi.org/10.1002/anie.201410967",
+        "doi": "10.1002/anie.201410967",
+        "title": "Electron Tunneling Rates in Respiratory Complex I Are Tuned for Efficient Energy Conversion",
+        "year": 2015,
+        "review_status": "passages_checked",
+        "review_note": "Main text and Table 1 checked; supplement blocked; human review pending."
       }
     ],
     "models": [
@@ -324,6 +333,44 @@
         "conditions": [],
         "limits": [
           "Purified enzyme; model attribution remains distinct from measured kinetics."
+        ]
+      },
+      {
+        "id": "C13",
+        "text": "Kinetic modelling assigns distinct half-lives to oxidized and reduced N2 states.",
+        "kind": "experimental_fit",
+        "references": [
+          {
+            "source_id": "S-DEVRIES2015",
+            "locator": "Table 1; Figures 3–4"
+          }
+        ],
+        "conditions": [
+          "purified E. coli complex I",
+          "pH 6",
+          "10 degC"
+        ],
+        "limits": [
+          "Elementary-step attribution is model-dependent; human mitochondrial transfer untested."
+        ]
+      },
+      {
+        "id": "C14",
+        "text": "N2-linked conformational changes are proposed to alter electronic coupling.",
+        "kind": "author_hypothesis",
+        "references": [
+          {
+            "source_id": "S-DEVRIES2015",
+            "locator": "Discussion following Table 1"
+          }
+        ],
+        "conditions": [
+          "purified E. coli complex I",
+          "pH 6",
+          "10 degC"
+        ],
+        "limits": [
+          "Elementary-step attribution is model-dependent; human mitochondrial transfer untested."
         ]
       }
     ],
@@ -615,6 +662,59 @@
           "status": "under_review",
           "claim_ids": [
             "C11"
+          ],
+          "assessments": [],
+          "surface": false,
+          "surface_rationale": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        "relevance": {
+          "status": "unassessed",
+          "parameters": {},
+          "questions": [],
+          "assessments": []
+        },
+        "links": [],
+        "experiment_ids": []
+      },
+      {
+        "id": "F06",
+        "title": "Redox-state dependence of complex-I electron transfer",
+        "physiology": {
+          "tags": [
+            "respiration",
+            "energy conversion"
+          ],
+          "lay_summary": "Bacterial complex I as a respiratory-chain model.",
+          "claim_ids": [],
+          "guidance_status": "educational_only"
+        },
+        "mathematics": {
+          "model_ids": [],
+          "claim_ids": [],
+          "compatibility_questions": [],
+          "status": "not_extracted"
+        },
+        "hypotheses": {
+          "claim_ids": [
+            "C14"
+          ],
+          "source_ids": [
+            "S-DEVRIES2015"
+          ],
+          "adoption": {
+            "status": "not_assessed"
+          },
+          "testing": {
+            "status": "single_article_sample"
+          },
+          "directions": []
+        },
+        "evidence": {
+          "status": "under_review",
+          "claim_ids": [
+            "C13"
           ],
           "assessments": [],
           "surface": false,
@@ -2186,6 +2286,139 @@
           "role": "alternative_modelling_route_screened_not_extracted"
         }
       ]
+    },
+    {
+      "archive_record_version": "1.0",
+      "fragment_id": "F06",
+      "source_id": "S-DEVRIES2015",
+      "bibliographic": {
+        "authors": [
+          "Simon de Vries",
+          "Katerina Dörner",
+          "Marc J. F. Strampraad",
+          "Thorsten Friedrich"
+        ],
+        "year": 2015,
+        "journal": "Angewandte Chemie International Edition",
+        "doi": "10.1002/anie.201410967",
+        "full_text_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4506566/"
+      },
+      "tags": [
+        "qb:respiratory_complex_i",
+        "qb:electron_tunneling",
+        "qb:redox_state"
+      ],
+      "system": {
+        "level": "purified_enzyme",
+        "organism_label": "Escherichia coli",
+        "enzyme": "complex I",
+        "intervention": "NADH_reduction",
+        "mitochondria_directly_tested": false
+      },
+      "conditions": [
+        {
+          "context": "Table_1",
+          "parameter": "pH",
+          "value": 6,
+          "unit": "1",
+          "locator": "Table 1 footnote a"
+        },
+        {
+          "context": "Table_1",
+          "parameter": "temperature",
+          "value": 10,
+          "unit": "degC",
+          "locator": "Table 1 footnote a"
+        }
+      ],
+      "mathematical_space": {
+        "axes": [
+          "N2_redox_state"
+        ],
+        "observables": [
+          {
+            "id": "qb:electron_transfer_half_life",
+            "symbol": "t_1/2",
+            "unit": "us"
+          }
+        ],
+        "model_families": [
+          "kinetic_reaction_network",
+          "Marcus_electron_transfer"
+        ],
+        "model_execution": "not_performed",
+        "model_parameters_status": "partial",
+        "relation_to_F01": "experimental_constraint_not_independent_validation"
+      },
+      "results": [
+        {
+          "fragment_id": "F06",
+          "source_id": "S-DEVRIES2015",
+          "variant": "N2_oxidized",
+          "observable_id": "qb:electron_transfer_half_life",
+          "value": 200,
+          "unit": "us",
+          "uncertainty_value": 20,
+          "uncertainty_kind": "acceptable_fit_variation_not_SD_or_SE",
+          "result_type": "model_inferred_elementary_step",
+          "data_origin": "current_study",
+          "origin_doi": "10.1002/anie.201410967",
+          "locator": "Table 1, elementary 4Fe[75]H to N4 step; footnote e",
+          "status": "reported"
+        },
+        {
+          "fragment_id": "F06",
+          "source_id": "S-DEVRIES2015",
+          "variant": "N2_reduced",
+          "observable_id": "qb:electron_transfer_half_life",
+          "value": 1200,
+          "unit": "us",
+          "uncertainty_value": 100,
+          "uncertainty_kind": "acceptable_fit_variation_not_SD_or_SE",
+          "result_type": "model_inferred_elementary_step",
+          "data_origin": "current_study",
+          "origin_doi": "10.1002/anie.201410967",
+          "locator": "Table 1, elementary 4Fe[75]H to N4 step; footnote e",
+          "status": "reported"
+        }
+      ],
+      "evidence": {
+        "design": [
+          "ultrafast_freeze_quench",
+          "EPR",
+          "UV_Vis",
+          "kinetic_simulation"
+        ],
+        "raw_data_review": "not_done",
+        "independent_replication": "not_assessed",
+        "supplement_review": "access_blocked",
+        "global_grade": null
+      },
+      "relevance": {
+        "category": "basic_mechanistic_knowledge",
+        "biomedical_transfer": "not_established_by_this_sample",
+        "utility_parameters": null
+      },
+      "provenance": {
+        "checked_on": "2026-11-09",
+        "extractor": "assistant",
+        "human_review": "pending",
+        "locators": [
+          "Table 1 and footnotes",
+          "Figures 3–4",
+          "Discussion"
+        ]
+      },
+      "related_links": [
+        {
+          "doi": "10.1073/pnas.0711249105",
+          "role": "earlier_experiment_with_different_interpretation"
+        },
+        {
+          "doi": "10.1073/pnas.1009181107",
+          "role": "related_computational_fragment_F01"
+        }
+      ]
     }
   ],
   "surface_vocabulary": [
@@ -2234,6 +2467,34 @@
     {
       "id": "qb:activation_energy_isotope_difference",
       "definition": "Fitted E_a(D) minus E_a(H)",
+      "parent_id": null,
+      "namespace": "local_qb",
+      "external_mapping": null
+    },
+    {
+      "id": "qb:respiratory_complex_i",
+      "definition": "Respiratory NADH:ubiquinone oxidoreductase",
+      "parent_id": null,
+      "namespace": "local_qb",
+      "external_mapping": null
+    },
+    {
+      "id": "qb:electron_tunneling",
+      "definition": "Electron transfer by quantum tunnelling",
+      "parent_id": null,
+      "namespace": "local_qb",
+      "external_mapping": null
+    },
+    {
+      "id": "qb:redox_state",
+      "definition": "Oxidation/reduction state",
+      "parent_id": null,
+      "namespace": "local_qb",
+      "external_mapping": null
+    },
+    {
+      "id": "qb:electron_transfer_half_life",
+      "definition": "Half-life of a specified electron-transfer step",
       "parent_id": null,
       "namespace": "local_qb",
       "external_mapping": null

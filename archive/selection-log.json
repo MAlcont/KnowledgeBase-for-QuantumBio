@@ -16,5 +16,24 @@
       "reason": "Emblematic magnetoreception option; hydrogen transfer better broadens this collection now."
     }
   ],
-  "ranking_scope": "Editorial choice for this collection, not bibliometric or field-wide ranking."
+  "ranking_scope": "Editorial choice for this collection, not bibliometric or field-wide ranking.",
+  "subsequent_selections": [
+    {
+      "date": "2026-11-09",
+      "fragment_id": "F06",
+      "selected": "10.1002/anie.201410967",
+      "criterion": "Experimental kinetics with explicit mechanistic modelling complements F01.",
+      "screened": [
+        {
+          "doi": "10.1073/pnas.0711249105",
+          "reason": "Earlier kinetics; differing interpretation."
+        },
+        {
+          "doi": "10.1002/1873-3468.14518",
+          "reason": "Computational hypothesis; experimental sample preferred."
+        }
+      ],
+      "ranking_scope": "Collection-specific choice, not field-wide ranking."
+    }
+  ]
 }

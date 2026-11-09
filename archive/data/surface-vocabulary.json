@@ -47,5 +47,33 @@
     "parent_id": null,
     "namespace": "local_qb",
     "external_mapping": null
+  },
+  {
+    "id": "qb:respiratory_complex_i",
+    "definition": "Respiratory NADH:ubiquinone oxidoreductase",
+    "parent_id": null,
+    "namespace": "local_qb",
+    "external_mapping": null
+  },
+  {
+    "id": "qb:electron_tunneling",
+    "definition": "Electron transfer by quantum tunnelling",
+    "parent_id": null,
+    "namespace": "local_qb",
+    "external_mapping": null
+  },
+  {
+    "id": "qb:redox_state",
+    "definition": "Oxidation/reduction state",
+    "parent_id": null,
+    "namespace": "local_qb",
+    "external_mapping": null
+  },
+  {
+    "id": "qb:electron_transfer_half_life",
+    "definition": "Half-life of a specified electron-transfer step",
+    "parent_id": null,
+    "namespace": "local_qb",
+    "external_mapping": null
   }
 ]

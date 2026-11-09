@@ -49,6 +49,15 @@
       "year": 2008,
       "review_status": "passages_checked",
       "review_note": "2026-11-08: main-text Table 1, Results, Discussion and Methods checked. Supplemental tables and raw data not reviewed."
+    },
+    {
+      "id": "S-DEVRIES2015",
+      "url": "https://doi.org/10.1002/anie.201410967",
+      "doi": "10.1002/anie.201410967",
+      "title": "Electron Tunneling Rates in Respiratory Complex I Are Tuned for Efficient Energy Conversion",
+      "year": 2015,
+      "review_status": "passages_checked",
+      "review_note": "Main text and Table 1 checked; supplement blocked; human review pending."
     }
   ],
   "models": [
@@ -321,6 +330,44 @@
       "conditions": [],
       "limits": [
         "Purified enzyme; model attribution remains distinct from measured kinetics."
+      ]
+    },
+    {
+      "id": "C13",
+      "text": "Kinetic modelling assigns distinct half-lives to oxidized and reduced N2 states.",
+      "kind": "experimental_fit",
+      "references": [
+        {
+          "source_id": "S-DEVRIES2015",
+          "locator": "Table 1; Figures 3–4"
+        }
+      ],
+      "conditions": [
+        "purified E. coli complex I",
+        "pH 6",
+        "10 degC"
+      ],
+      "limits": [
+        "Elementary-step attribution is model-dependent; human mitochondrial transfer untested."
+      ]
+    },
+    {
+      "id": "C14",
+      "text": "N2-linked conformational changes are proposed to alter electronic coupling.",
+      "kind": "author_hypothesis",
+      "references": [
+        {
+          "source_id": "S-DEVRIES2015",
+          "locator": "Discussion following Table 1"
+        }
+      ],
+      "conditions": [
+        "purified E. coli complex I",
+        "pH 6",
+        "10 degC"
+      ],
+      "limits": [
+        "Elementary-step attribution is model-dependent; human mitochondrial transfer untested."
       ]
     }
   ],
@@ -612,6 +659,59 @@
         "status": "under_review",
         "claim_ids": [
           "C11"
+        ],
+        "assessments": [],
+        "surface": false,
+        "surface_rationale": null,
+        "reviewer": null,
+        "reviewed_at": null
+      },
+      "relevance": {
+        "status": "unassessed",
+        "parameters": {},
+        "questions": [],
+        "assessments": []
+      },
+      "links": [],
+      "experiment_ids": []
+    },
+    {
+      "id": "F06",
+      "title": "Redox-state dependence of complex-I electron transfer",
+      "physiology": {
+        "tags": [
+          "respiration",
+          "energy conversion"
+        ],
+        "lay_summary": "Bacterial complex I as a respiratory-chain model.",
+        "claim_ids": [],
+        "guidance_status": "educational_only"
+      },
+      "mathematics": {
+        "model_ids": [],
+        "claim_ids": [],
+        "compatibility_questions": [],
+        "status": "not_extracted"
+      },
+      "hypotheses": {
+        "claim_ids": [
+          "C14"
+        ],
+        "source_ids": [
+          "S-DEVRIES2015"
+        ],
+        "adoption": {
+          "status": "not_assessed"
+        },
+        "testing": {
+          "status": "single_article_sample"
+        },
+        "directions": []
+      },
+      "evidence": {
+        "status": "under_review",
+        "claim_ids": [
+          "C13"
         ],
         "assessments": [],
         "surface": false,

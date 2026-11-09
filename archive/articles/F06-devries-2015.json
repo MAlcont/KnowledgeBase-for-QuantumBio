@@ -1,0 +1,133 @@
+{
+  "archive_record_version": "1.0",
+  "fragment_id": "F06",
+  "source_id": "S-DEVRIES2015",
+  "bibliographic": {
+    "authors": [
+      "Simon de Vries",
+      "Katerina Dörner",
+      "Marc J. F. Strampraad",
+      "Thorsten Friedrich"
+    ],
+    "year": 2015,
+    "journal": "Angewandte Chemie International Edition",
+    "doi": "10.1002/anie.201410967",
+    "full_text_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4506566/"
+  },
+  "tags": [
+    "qb:respiratory_complex_i",
+    "qb:electron_tunneling",
+    "qb:redox_state"
+  ],
+  "system": {
+    "level": "purified_enzyme",
+    "organism_label": "Escherichia coli",
+    "enzyme": "complex I",
+    "intervention": "NADH_reduction",
+    "mitochondria_directly_tested": false
+  },
+  "conditions": [
+    {
+      "context": "Table_1",
+      "parameter": "pH",
+      "value": 6,
+      "unit": "1",
+      "locator": "Table 1 footnote a"
+    },
+    {
+      "context": "Table_1",
+      "parameter": "temperature",
+      "value": 10,
+      "unit": "degC",
+      "locator": "Table 1 footnote a"
+    }
+  ],
+  "mathematical_space": {
+    "axes": [
+      "N2_redox_state"
+    ],
+    "observables": [
+      {
+        "id": "qb:electron_transfer_half_life",
+        "symbol": "t_1/2",
+        "unit": "us"
+      }
+    ],
+    "model_families": [
+      "kinetic_reaction_network",
+      "Marcus_electron_transfer"
+    ],
+    "model_execution": "not_performed",
+    "model_parameters_status": "partial",
+    "relation_to_F01": "experimental_constraint_not_independent_validation"
+  },
+  "results": [
+    {
+      "fragment_id": "F06",
+      "source_id": "S-DEVRIES2015",
+      "variant": "N2_oxidized",
+      "observable_id": "qb:electron_transfer_half_life",
+      "value": 200,
+      "unit": "us",
+      "uncertainty_value": 20,
+      "uncertainty_kind": "acceptable_fit_variation_not_SD_or_SE",
+      "result_type": "model_inferred_elementary_step",
+      "data_origin": "current_study",
+      "origin_doi": "10.1002/anie.201410967",
+      "locator": "Table 1, elementary 4Fe[75]H to N4 step; footnote e",
+      "status": "reported"
+    },
+    {
+      "fragment_id": "F06",
+      "source_id": "S-DEVRIES2015",
+      "variant": "N2_reduced",
+      "observable_id": "qb:electron_transfer_half_life",
+      "value": 1200,
+      "unit": "us",
+      "uncertainty_value": 100,
+      "uncertainty_kind": "acceptable_fit_variation_not_SD_or_SE",
+      "result_type": "model_inferred_elementary_step",
+      "data_origin": "current_study",
+      "origin_doi": "10.1002/anie.201410967",
+      "locator": "Table 1, elementary 4Fe[75]H to N4 step; footnote e",
+      "status": "reported"
+    }
+  ],
+  "evidence": {
+    "design": [
+      "ultrafast_freeze_quench",
+      "EPR",
+      "UV_Vis",
+      "kinetic_simulation"
+    ],
+    "raw_data_review": "not_done",
+    "independent_replication": "not_assessed",
+    "supplement_review": "access_blocked",
+    "global_grade": null
+  },
+  "relevance": {
+    "category": "basic_mechanistic_knowledge",
+    "biomedical_transfer": "not_established_by_this_sample",
+    "utility_parameters": null
+  },
+  "provenance": {
+    "checked_on": "2026-11-09",
+    "extractor": "assistant",
+    "human_review": "pending",
+    "locators": [
+      "Table 1 and footnotes",
+      "Figures 3–4",
+      "Discussion"
+    ]
+  },
+  "related_links": [
+    {
+      "doi": "10.1073/pnas.0711249105",
+      "role": "earlier_experiment_with_different_interpretation"
+    },
+    {
+      "doi": "10.1073/pnas.1009181107",
+      "role": "related_computational_fragment_F01"
+    }
+  ]
+}

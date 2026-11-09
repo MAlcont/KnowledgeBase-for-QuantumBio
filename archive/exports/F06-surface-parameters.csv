@@ -1,0 +1,3 @@
+﻿"fragment_id","context","variant","observable","role","value","unit","uncertainty","uncertainty_kind","status","origin","source_ids","locator","qualifier"
+"F06","surface_record","N2_oxidized","qb:electron_transfer_half_life","model_inferred_elementary_step","200","us","20","acceptable_fit_variation_not_SD_or_SE","reported","current_study","S-DEVRIES2015","Table 1, elementary 4Fe[75]H to N4 step; footnote e","Origin DOI: 10.1002/anie.201410967"
+"F06","surface_record","N2_reduced","qb:electron_transfer_half_life","model_inferred_elementary_step","1200","us","100","acceptable_fit_variation_not_SD_or_SE","reported","current_study","S-DEVRIES2015","Table 1, elementary 4Fe[75]H to N4 step; footnote e","Origin DOI: 10.1002/anie.201410967"
