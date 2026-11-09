@@ -1,0 +1,8 @@
+{
+  "name": "kb4qb-middleware",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "node --test", "build:archive": "node tools/build-archive.mjs"},
+  "engines": {"node": ">=22"}
+}

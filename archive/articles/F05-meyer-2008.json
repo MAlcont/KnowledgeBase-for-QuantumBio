@@ -1,0 +1,209 @@
+{
+  "archive_record_version": "1.0",
+  "fragment_id": "F05",
+  "source_id": "S-MEYER2008",
+  "bibliographic": {
+    "authors": [
+      "Matthew P. Meyer",
+      "Diana R. Tomchick",
+      "Judith P. Klinman"
+    ],
+    "year": 2008,
+    "journal": "PNAS",
+    "doi": "10.1073/pnas.0710643105",
+    "full_text_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2234106/"
+  },
+  "tags": [
+    "qb:enzyme_catalysis",
+    "qb:hydrogen_transfer",
+    "qb:hydrogen_tunneling",
+    "qb:kinetic_isotope_effect",
+    "qb:protein_dynamics"
+  ],
+  "system": {
+    "level": "purified_enzyme",
+    "organism_label": "soybean",
+    "enzyme": "SLO-1",
+    "substrates": [
+      "protio-linoleic acid",
+      "11,11-dideuterio-linoleic acid"
+    ],
+    "intervention": "site_directed_mutagenesis",
+    "site": 553
+  },
+  "conditions": [
+    {
+      "context": "enzyme_kinetics",
+      "parameter": "temperature_interval",
+      "value": [
+        10,
+        50
+      ],
+      "unit": "degC",
+      "locator": "Results: Kinetic Parameters"
+    },
+    {
+      "context": "enzyme_kinetics",
+      "parameter": "readout_wavelength",
+      "value": 234,
+      "unit": "nm",
+      "locator": "Results: Kinetic Parameters"
+    },
+    {
+      "context": "crystallography",
+      "parameter": "collection_temperature",
+      "value": 100,
+      "unit": "K",
+      "locator": "Methods: Crystallization and Data Collection"
+    }
+  ],
+  "mathematical_space": {
+    "axes": [
+      "variant",
+      "isotope",
+      "absolute_temperature"
+    ],
+    "observables": [
+      {
+        "id": "qb:turnover_rate",
+        "symbol": "k_cat",
+        "unit": "s^-1"
+      },
+      {
+        "id": "qb:kinetic_isotope_effect",
+        "symbol": "k_cat,H/k_cat,D",
+        "unit": "1"
+      },
+      {
+        "id": "qb:activation_energy_isotope_difference",
+        "symbol": "E_a(D)-E_a(H)",
+        "unit": "kcal/mol"
+      }
+    ],
+    "model_families": [
+      "Arrhenius_parameterization",
+      "environmentally_coupled_tunneling"
+    ],
+    "model_execution": "not_requested",
+    "model_parameters_status": "not_sampled"
+  },
+  "results": [
+    {
+      "fragment_id": "F05",
+      "source_id": "S-MEYER2008",
+      "variant": "WT",
+      "observable_id": "qb:activation_energy_isotope_difference",
+      "value": 0.9,
+      "unit": "kcal/mol",
+      "uncertainty_value": 0.2,
+      "uncertainty_kind": "not_verified",
+      "result_type": "experimental_fit",
+      "data_origin": "prior_study_reused",
+      "origin_doi": "10.1021/ja012205t",
+      "locator": "Table 1, experimental E_a(D) - E_a(H) column",
+      "status": "reported"
+    },
+    {
+      "fragment_id": "F05",
+      "source_id": "S-MEYER2008",
+      "variant": "I553V",
+      "observable_id": "qb:activation_energy_isotope_difference",
+      "value": 2.6,
+      "unit": "kcal/mol",
+      "uncertainty_value": 0.5,
+      "uncertainty_kind": "not_verified",
+      "result_type": "experimental_fit",
+      "data_origin": "current_study",
+      "origin_doi": "10.1073/pnas.0710643105",
+      "locator": "Table 1, experimental E_a(D) - E_a(H) column",
+      "status": "reported"
+    },
+    {
+      "fragment_id": "F05",
+      "source_id": "S-MEYER2008",
+      "variant": "I553L",
+      "observable_id": "qb:activation_energy_isotope_difference",
+      "value": 3.4,
+      "unit": "kcal/mol",
+      "uncertainty_value": 0.6,
+      "uncertainty_kind": "not_verified",
+      "result_type": "experimental_fit",
+      "data_origin": "current_study",
+      "origin_doi": "10.1073/pnas.0710643105",
+      "locator": "Table 1, experimental E_a(D) - E_a(H) column",
+      "status": "reported"
+    },
+    {
+      "fragment_id": "F05",
+      "source_id": "S-MEYER2008",
+      "variant": "I553A",
+      "observable_id": "qb:activation_energy_isotope_difference",
+      "value": 4.0,
+      "unit": "kcal/mol",
+      "uncertainty_value": 0.3,
+      "uncertainty_kind": "not_verified",
+      "result_type": "experimental_fit",
+      "data_origin": "prior_study_reused",
+      "origin_doi": "10.1021/ja012205t",
+      "locator": "Table 1, experimental E_a(D) - E_a(H) column",
+      "status": "reported"
+    },
+    {
+      "fragment_id": "F05",
+      "source_id": "S-MEYER2008",
+      "variant": "I553G",
+      "observable_id": "qb:activation_energy_isotope_difference",
+      "value": 5.3,
+      "unit": "kcal/mol",
+      "uncertainty_value": 0.7,
+      "uncertainty_kind": "not_verified",
+      "result_type": "experimental_fit",
+      "data_origin": "current_study",
+      "origin_doi": "10.1073/pnas.0710643105",
+      "locator": "Table 1, experimental E_a(D) - E_a(H) column",
+      "status": "reported"
+    }
+  ],
+  "evidence": {
+    "design": [
+      "mutagenesis",
+      "isotope_substitution",
+      "temperature_series",
+      "xray_crystallography"
+    ],
+    "raw_data_review": "not_done",
+    "independent_replication": "not_assessed",
+    "supplement_review": "not_done",
+    "global_grade": null
+  },
+  "relevance": {
+    "category": "basic_mechanistic_knowledge",
+    "biomedical_transfer": "not_established_by_this_sample",
+    "utility_parameters": null
+  },
+  "provenance": {
+    "checked_on": "2026-11-08",
+    "extractor": "assistant",
+    "human_review": "pending",
+    "locators": [
+      "Table 1 and footnotes",
+      "Results: Kinetic Parameters",
+      "Methods: Enzyme Kinetics",
+      "Methods: Crystallization and Data Collection"
+    ]
+  },
+  "related_links": [
+    {
+      "doi": "10.1021/ja012205t",
+      "role": "origin_of_reused_WT_and_I553A_data"
+    },
+    {
+      "doi": "10.1016/j.chemphys.2005.05.017",
+      "role": "earlier_model_parameters"
+    },
+    {
+      "doi": "10.1021/jp0758420",
+      "role": "alternative_modelling_route_screened_not_extracted"
+    }
+  ]
+}

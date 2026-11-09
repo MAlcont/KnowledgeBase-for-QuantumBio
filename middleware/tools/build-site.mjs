@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {execFileSync} from 'node:child_process';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
+execFileSync(process.execPath,[path.join(root,'middleware/tools/build-archive.mjs'),path.join(root,'archive')],{stdio:'inherit'});
+const dist=path.join(root,'dist');
+await fs.rm(dist,{recursive:true,force:true});
+await fs.cp(path.join(root,'middleware/web'),dist,{recursive:true});
+await fs.copyFile(path.join(root,'archive/archive.json'),path.join(dist,'archive.json'));
+await fs.writeFile(path.join(dist,'.nojekyll'),'');
+console.log('Built dist/: interface + generated archive. Source folders remain separate.');

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "qb:enzyme_catalysis",
+    "definition": "Enzyme catalysis",
+    "parent_id": null,
+    "namespace": "local_qb",
+    "external_mapping": null
+  },
+  {
+    "id": "qb:hydrogen_transfer",
+    "definition": "Hydrogen transfer",
+    "parent_id": "qb:enzyme_catalysis",
+    "namespace": "local_qb",
+    "external_mapping": null
+  },
+  {
+    "id": "qb:hydrogen_tunneling",
+    "definition": "Hydrogen tunnelling",
+    "parent_id": "qb:hydrogen_transfer",
+    "namespace": "local_qb",
+    "external_mapping": null
+  },
+  {
+    "id": "qb:kinetic_isotope_effect",
+    "definition": "Ratio of matched H/D turnover rates",
+    "parent_id": null,
+    "namespace": "local_qb",
+    "external_mapping": null
+  },
+  {
+    "id": "qb:protein_dynamics",
+    "definition": "Protein conformational motions",
+    "parent_id": null,
+    "namespace": "local_qb",
+    "external_mapping": null
+  },
+  {
+    "id": "qb:turnover_rate",
+    "definition": "Steady-state catalytic turnover rate",
+    "parent_id": null,
+    "namespace": "local_qb",
+    "external_mapping": null
+  },
+  {
+    "id": "qb:activation_energy_isotope_difference",
+    "definition": "Fitted E_a(D) minus E_a(H)",
+    "parent_id": null,
+    "namespace": "local_qb",
+    "external_mapping": null
+  }
+]
