@@ -1,0 +1,2242 @@
+{
+  "bundle_version": "1.0",
+  "archive_version": "0.4.0",
+  "kb": {
+    "schema_version": "0.2.0",
+    "project": {
+      "name": "KB4qb",
+      "statement": "A body / organism is a knowledge base for qb."
+    },
+    "sources": [
+      {
+        "id": "S-HS2010",
+        "url": "https://doi.org/10.1073/pnas.1009181107",
+        "doi": "10.1073/pnas.1009181107",
+        "title": "Electron tunneling in respiratory complex I",
+        "year": 2010,
+        "review_status": "passages_checked",
+        "review_note": "Preliminary extraction from material retrieved in the project conversation; no independent full-text audit or subsequent-literature review."
+      },
+      {
+        "id": "S-S2018",
+        "url": "https://doi.org/10.1371/journal.pbio.2006229",
+        "doi": "10.1371/journal.pbio.2006229",
+        "title": "Low-intensity electromagnetic fields induce human cryptochrome to modulate intracellular reactive oxygen species",
+        "year": 2018,
+        "review_status": "passages_checked",
+        "review_note": "Preliminary extraction from material retrieved in the project conversation; no independent full-text audit or subsequent-literature review."
+      },
+      {
+        "id": "S-A2014",
+        "url": "https://doi.org/10.1126/scitranslmed.3008234",
+        "doi": "10.1126/scitranslmed.3008234",
+        "title": "Photoactivation of endogenous latent transforming growth factor-β1 directs dental stem cell differentiation for regeneration",
+        "year": 2014,
+        "review_status": "abstract_checked",
+        "review_note": "Preliminary extraction from material retrieved in the project conversation; no independent full-text audit or subsequent-literature review."
+      },
+      {
+        "id": "S-SANG2022",
+        "url": "https://doi.org/10.1073/pnas.2202650119",
+        "doi": "10.1073/pnas.2202650119",
+        "title": "Chirality enhances oxygen reduction",
+        "year": 2022,
+        "review_status": "passages_checked",
+        "review_note": "Main-text results, methods and equations checked 2026-11-08. Supplement PDF access failed; raw data, replication and subsequent literature not audited."
+      },
+      {
+        "id": "S-MEYER2008",
+        "url": "https://doi.org/10.1073/pnas.0710643105",
+        "doi": "10.1073/pnas.0710643105",
+        "title": "Enzyme structure and dynamics affect hydrogen tunneling: The impact of a remote side chain (I553) in soybean lipoxygenase-1",
+        "year": 2008,
+        "review_status": "passages_checked",
+        "review_note": "2026-11-08: main-text Table 1, Results, Discussion and Methods checked. Supplemental tables and raw data not reviewed."
+      }
+    ],
+    "models": [
+      {
+        "id": "M-CISS-RATE",
+        "description": "Barrier-ratio formalization",
+        "equations": [
+          "R = g * exp(epsilon / (k_B * T))"
+        ],
+        "assumptions": [],
+        "domain": "Equal-prefactor activated-rate comparison",
+        "parameters": [],
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Discussion: activation free energy"
+          }
+        ],
+        "internal_consistency": "not_checked",
+        "empirical_support": "not_assessed",
+        "review_notes": [
+          "Machine expressions and bounded checks are in data/parameter-space.json; this record is a human-readable index."
+        ]
+      },
+      {
+        "id": "M-SPIN-P",
+        "description": "Spin polarization",
+        "equations": [
+          "P = (I_parallel - I_antiparallel) / (I_parallel + I_antiparallel)"
+        ],
+        "assumptions": [],
+        "domain": "Nonnegative spin-resolved current magnitudes; nonzero total",
+        "parameters": [],
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Eq. 3"
+          }
+        ],
+        "internal_consistency": "not_checked",
+        "empirical_support": "not_assessed",
+        "review_notes": [
+          "Machine expressions and bounded checks are in data/parameter-space.json; this record is a human-readable index."
+        ]
+      },
+      {
+        "id": "M-KL",
+        "description": "Koutecky–Levich relation",
+        "equations": [
+          "1/j = 1/(B*sqrt(omega)) + 1/j_k"
+        ],
+        "assumptions": [],
+        "domain": "Rotating-disk transport/kinetics separation",
+        "parameters": [],
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Methods: RDE Measurements and Calculations"
+          }
+        ],
+        "internal_consistency": "not_checked",
+        "empirical_support": "not_assessed",
+        "review_notes": [
+          "Machine expressions and bounded checks are in data/parameter-space.json; this record is a human-readable index."
+        ]
+      },
+      {
+        "id": "M-SLO-ARRHENIUS",
+        "description": "Isotope-dependent Arrhenius parameterization",
+        "equations": [
+          "k_cat,X(T) = A_X exp(-E_a(X)/(R T))",
+          "KIE(T) = k_cat,H(T)/k_cat,D(T)"
+        ],
+        "assumptions": [
+          "Absolute temperature; consistent molar energy units."
+        ],
+        "domain": "Steady-state enzyme kinetics over the reported interval.",
+        "parameters": [],
+        "references": [
+          {
+            "source_id": "S-MEYER2008",
+            "locator": "Table 1; Figs. 2–3"
+          }
+        ],
+        "internal_consistency": "not_checked",
+        "empirical_support": "not_assessed",
+        "review_notes": [
+          "Descriptive mathematical index; no new execution or tolerance rule."
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "C01",
+        "text": "Complex I couples NADH-to-ubiquinone electron transfer to a proton gradient supporting ATP synthesis.",
+        "kind": "background",
+        "references": [
+          {
+            "source_id": "S-HS2010",
+            "locator": "Abstract"
+          }
+        ],
+        "conditions": [],
+        "limits": []
+      },
+      {
+        "id": "C02",
+        "text": "Calculations identify inter-cluster electron tunnelling paths and predict enhanced transfer when internal water is included.",
+        "kind": "model_result",
+        "references": [
+          {
+            "source_id": "S-HS2010",
+            "locator": "Abstract; Results and Discussion: Enhancement of Electron Transfer Rates due to the Internal Water"
+          }
+        ],
+        "conditions": [],
+        "limits": [
+          "Computed pathways and enhancements are not direct observations of individual electrons.",
+          "Exact parameters and model equations have not been extracted."
+        ]
+      },
+      {
+        "id": "C03",
+        "text": "Pulsed-field exposure increased ROS in the tested mammalian cell cultures; cryptochrome-deficient cultures lacked the reported response.",
+        "kind": "reported_observation",
+        "references": [
+          {
+            "source_id": "S-S2018",
+            "locator": "Results, Figures 2–3"
+          }
+        ],
+        "conditions": [],
+        "limits": [
+          "Restricted to the tested preparations and exposure conditions.",
+          "Exact field waveform, timing and assay parameters await structured extraction."
+        ]
+      },
+      {
+        "id": "C04",
+        "text": "Spin-dependent radical-pair chemistry is proposed as an explanation for the magnetic response.",
+        "kind": "author_hypothesis",
+        "references": [
+          {
+            "source_id": "S-S2018",
+            "locator": "Discussion"
+          }
+        ],
+        "conditions": [],
+        "limits": [
+          "The cellular experiments do not directly resolve the proposed spin mechanism.",
+          "Alternative cryptochrome-dependent mechanisms are not excluded."
+        ]
+      },
+      {
+        "id": "C05",
+        "text": "Low-power laser treatment induced ROS and activated latent TGF-β1; the study reports dental stem-cell differentiation and animal dentin regeneration.",
+        "kind": "reported_observation",
+        "references": [
+          {
+            "source_id": "S-A2014",
+            "locator": "Abstract"
+          }
+        ],
+        "conditions": [],
+        "limits": [
+          "Preclinical findings; clinical efficacy in humans is not established by this record.",
+          "The abstract does not establish a distinctive tunnelling, spin or coherence mechanism."
+        ]
+      },
+      {
+        "id": "C06",
+        "text": "Chiral Pt has a higher ORR onset potential than the tested racemic-derived Pt comparator.",
+        "kind": "reported_observation",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Fig. 3B–C; Results"
+          }
+        ],
+        "conditions": [],
+        "limits": [
+          "Electrode experiment; organism-level transfer untested."
+        ]
+      },
+      {
+        "id": "C07",
+        "text": "CISS-mediated spin filtering is proposed to enhance ORR.",
+        "kind": "author_hypothesis",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Discussion; Fig. 4"
+          }
+        ],
+        "conditions": [],
+        "limits": [
+          "Mechanism attribution is distinct from the electrochemical observation."
+        ]
+      },
+      {
+        "id": "C08",
+        "text": "Spin-state selection and stabilization yield a modelled rate enhancement.",
+        "kind": "model_result",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Discussion, activation free-energy calculation"
+          }
+        ],
+        "conditions": [],
+        "limits": [
+          "Illustrative model; not an observed biological rate."
+        ]
+      },
+      {
+        "id": "C09",
+        "text": "The cysteine-coated Au comparison reports a positive onset-potential shift.",
+        "kind": "reported_observation",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Results, Fig. 1B"
+          }
+        ],
+        "conditions": [],
+        "limits": [
+          "Abiotic assay only."
+        ]
+      },
+      {
+        "id": "C10",
+        "text": "Chiral Pt has a higher reported onset than the commercial Pt/C benchmark.",
+        "kind": "reported_observation",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Results, Fig. 3C"
+          }
+        ],
+        "conditions": [],
+        "limits": [
+          "Abiotic assay only."
+        ]
+      },
+      {
+        "id": "C11",
+        "text": "I553 substitutions change isotope-dependent activation parameters.",
+        "kind": "reported_observation",
+        "references": [
+          {
+            "source_id": "S-MEYER2008",
+            "locator": "Table 1"
+          }
+        ],
+        "conditions": [],
+        "limits": [
+          "Purified enzyme; model attribution remains distinct from measured kinetics."
+        ]
+      },
+      {
+        "id": "C12",
+        "text": "Donor–acceptor distance sampling is proposed to explain the mutant trends.",
+        "kind": "author_hypothesis",
+        "references": [
+          {
+            "source_id": "S-MEYER2008",
+            "locator": "Discussion; Eq. 1"
+          }
+        ],
+        "conditions": [],
+        "limits": [
+          "Purified enzyme; model attribution remains distinct from measured kinetics."
+        ]
+      }
+    ],
+    "fragments": [
+      {
+        "id": "F01",
+        "title": "Electron transfer in respiratory complex I",
+        "physiology": {
+          "tags": [
+            "respiration",
+            "energy conversion"
+          ],
+          "lay_summary": "Complex I contributes to the energy-conversion machinery that supports ATP production.",
+          "claim_ids": [
+            "C01"
+          ],
+          "guidance_status": "educational_only"
+        },
+        "mathematics": {
+          "model_ids": [],
+          "claim_ids": [
+            "C02"
+          ],
+          "compatibility_questions": [
+            "Within which structural and kinetic conditions are the predicted pathways compatible with measured respiratory function?"
+          ],
+          "status": "not_extracted"
+        },
+        "hypotheses": {
+          "claim_ids": [],
+          "source_ids": [
+            "S-HS2010"
+          ],
+          "adoption": {
+            "status": "not_assessed"
+          },
+          "testing": {
+            "status": "not_assessed"
+          },
+          "directions": []
+        },
+        "evidence": {
+          "status": "unassessed",
+          "claim_ids": [
+            "C02"
+          ],
+          "assessments": [],
+          "surface": false,
+          "surface_rationale": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        "relevance": {
+          "status": "unassessed",
+          "parameters": {},
+          "questions": [],
+          "assessments": []
+        },
+        "links": [],
+        "experiment_ids": []
+      },
+      {
+        "id": "F02",
+        "title": "Cryptochrome-dependent magnetic response",
+        "physiology": {
+          "tags": [
+            "cellular redox response"
+          ],
+          "lay_summary": "This study examines changes in reactive oxygen species in cells exposed to pulsed magnetic fields.",
+          "claim_ids": [
+            "C03"
+          ],
+          "guidance_status": "educational_only"
+        },
+        "mathematics": {
+          "model_ids": [],
+          "claim_ids": [],
+          "compatibility_questions": [
+            "Which spin-dynamic timescales and reaction partners would reproduce the measured cellular response?"
+          ],
+          "status": "not_extracted"
+        },
+        "hypotheses": {
+          "claim_ids": [
+            "C04"
+          ],
+          "source_ids": [
+            "S-S2018"
+          ],
+          "adoption": {
+            "status": "not_assessed"
+          },
+          "testing": {
+            "status": "not_assessed"
+          },
+          "directions": []
+        },
+        "evidence": {
+          "status": "unassessed",
+          "claim_ids": [
+            "C03"
+          ],
+          "assessments": [],
+          "surface": false,
+          "surface_rationale": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        "relevance": {
+          "status": "unassessed",
+          "parameters": {},
+          "questions": [],
+          "assessments": []
+        },
+        "links": [
+          {
+            "target_fragment_id": "F03",
+            "relation": "Shared ROS theme; no demonstrated common intervention pathway.",
+            "basis": "curator_proposed",
+            "references": []
+          }
+        ],
+        "experiment_ids": []
+      },
+      {
+        "id": "F03",
+        "title": "Light activation of a regenerative signal",
+        "physiology": {
+          "tags": [
+            "dental tissue",
+            "repair"
+          ],
+          "lay_summary": "This study investigates light-triggered growth-factor activation and dental repair in preclinical systems.",
+          "claim_ids": [
+            "C05"
+          ],
+          "guidance_status": "educational_only"
+        },
+        "mathematics": {
+          "model_ids": [],
+          "claim_ids": [],
+          "compatibility_questions": [
+            "Which photochemical and kinetic description accounts for ROS generation under the reported illumination conditions?"
+          ],
+          "status": "not_extracted"
+        },
+        "hypotheses": {
+          "claim_ids": [],
+          "source_ids": [
+            "S-A2014"
+          ],
+          "adoption": {
+            "status": "not_assessed"
+          },
+          "testing": {
+            "status": "not_assessed"
+          },
+          "directions": []
+        },
+        "evidence": {
+          "status": "unassessed",
+          "claim_ids": [
+            "C05"
+          ],
+          "assessments": [],
+          "surface": false,
+          "surface_rationale": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        "relevance": {
+          "status": "unassessed",
+          "parameters": {},
+          "questions": [],
+          "assessments": []
+        },
+        "links": [],
+        "experiment_ids": []
+      },
+      {
+        "id": "F04",
+        "title": "Chirality and oxygen reduction",
+        "physiology": {
+          "tags": [
+            "oxygen reduction"
+          ],
+          "lay_summary": "Electrochemical analogue with a proposed respiratory connection.",
+          "claim_ids": [],
+          "guidance_status": "educational_only"
+        },
+        "mathematics": {
+          "model_ids": [
+            "M-CISS-RATE",
+            "M-SPIN-P",
+            "M-KL"
+          ],
+          "claim_ids": [
+            "C08"
+          ],
+          "compatibility_questions": [
+            "Does the proposed mechanism transfer to biological conditions?"
+          ],
+          "status": "partial"
+        },
+        "hypotheses": {
+          "claim_ids": [
+            "C07"
+          ],
+          "source_ids": [
+            "S-SANG2022"
+          ],
+          "adoption": {
+            "status": "not_assessed"
+          },
+          "testing": {
+            "status": "single_source_extracted"
+          },
+          "directions": []
+        },
+        "evidence": {
+          "status": "under_review",
+          "claim_ids": [
+            "C06",
+            "C09",
+            "C10"
+          ],
+          "assessments": [
+            {
+              "reviewer": "KB4qb automated extraction + curator analysis",
+              "scope": "Main text only",
+              "verdict": "No global evidence grade assigned"
+            }
+          ],
+          "surface": false,
+          "surface_rationale": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        "relevance": {
+          "status": "unassessed",
+          "parameters": {},
+          "questions": [
+            "What biological experiment would test this proposed connection?"
+          ],
+          "assessments": []
+        },
+        "links": [],
+        "experiment_ids": [
+          "EX-PT-RDE",
+          "EX-SAM-LSV"
+        ]
+      },
+      {
+        "id": "F05",
+        "title": "Remote protein packing and hydrogen transfer",
+        "physiology": {
+          "tags": [
+            "lipid oxidation",
+            "enzyme catalysis"
+          ],
+          "lay_summary": "Hydrogen transfer in soybean lipoxygenase.",
+          "claim_ids": [],
+          "guidance_status": "educational_only"
+        },
+        "mathematics": {
+          "model_ids": [
+            "M-SLO-ARRHENIUS"
+          ],
+          "claim_ids": [],
+          "compatibility_questions": [],
+          "status": "partial"
+        },
+        "hypotheses": {
+          "claim_ids": [
+            "C12"
+          ],
+          "source_ids": [
+            "S-MEYER2008"
+          ],
+          "adoption": {
+            "status": "not_assessed"
+          },
+          "testing": {
+            "status": "single_article_sample"
+          },
+          "directions": []
+        },
+        "evidence": {
+          "status": "under_review",
+          "claim_ids": [
+            "C11"
+          ],
+          "assessments": [],
+          "surface": false,
+          "surface_rationale": null,
+          "reviewer": null,
+          "reviewed_at": null
+        },
+        "relevance": {
+          "status": "unassessed",
+          "parameters": {},
+          "questions": [],
+          "assessments": []
+        },
+        "links": [],
+        "experiment_ids": []
+      }
+    ]
+  },
+  "parameter_space": {
+    "schema_version": "0.2.0",
+    "vocabulary": [
+      {
+        "id": "qb:process",
+        "label": "Process",
+        "parent_ids": [],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Process index; parent category, not an assertion of in-vivo occurrence.",
+        "allowed_units": []
+      },
+      {
+        "id": "qb:redox",
+        "label": "Redox process",
+        "parent_ids": [
+          "qb:process"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Electron-transfer process category.",
+        "allowed_units": []
+      },
+      {
+        "id": "qb:orr",
+        "label": "Oxygen reduction",
+        "parent_ids": [
+          "qb:redox"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Reduction of molecular oxygen; distinct from oxygen evolution.",
+        "allowed_units": []
+      },
+      {
+        "id": "qb:mechanism",
+        "label": "Mechanism",
+        "parent_ids": [],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Explanatory mechanism index; membership does not imply confirmation.",
+        "allowed_units": []
+      },
+      {
+        "id": "qb:spin",
+        "label": "Spin-dependent mechanism",
+        "parent_ids": [
+          "qb:mechanism"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Mechanism involving electron-spin-dependent dynamics or reactivity.",
+        "allowed_units": []
+      },
+      {
+        "id": "qb:ciss",
+        "label": "Chirality-induced spin selectivity",
+        "parent_ids": [
+          "qb:spin"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Chirality-associated spin-selective electron transmission; proposed attribution in this fragment.",
+        "allowed_units": []
+      },
+      {
+        "id": "qb:system",
+        "label": "Experimental system",
+        "parent_ids": [],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Physical system actually studied.",
+        "allowed_units": []
+      },
+      {
+        "id": "qb:electrode",
+        "label": "Electrode system",
+        "parent_ids": [
+          "qb:system"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Abiotic electrochemical electrode preparation.",
+        "allowed_units": []
+      },
+      {
+        "id": "qb:pt-np",
+        "label": "Platinum nanoparticle electrode",
+        "parent_ids": [
+          "qb:electrode"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Electrode bearing platinum nanoparticles.",
+        "allowed_units": []
+      },
+      {
+        "id": "qb:au-sam",
+        "label": "Gold monolayer electrode",
+        "parent_ids": [
+          "qb:electrode"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Gold electrode with a self-assembled molecular monolayer.",
+        "allowed_units": []
+      },
+      {
+        "id": "qb:observable",
+        "label": "Observable",
+        "parent_ids": [],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Quantity definition; measurement status is stored separately.",
+        "allowed_units": []
+      },
+      {
+        "id": "qb:potential",
+        "label": "Electrode potential",
+        "parent_ids": [
+          "qb:observable"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Electrode potential requiring an explicit reference scale.",
+        "allowed_units": []
+      },
+      {
+        "id": "qb:onset",
+        "label": "ORR onset potential",
+        "parent_ids": [
+          "qb:potential"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Potential at a declared current-density threshold; compare only compatible threshold/sign/reference conventions.",
+        "allowed_units": [
+          "V",
+          "mV"
+        ]
+      },
+      {
+        "id": "qb:halfwave",
+        "label": "Half-wave potential",
+        "parent_ids": [
+          "qb:potential"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Potential at half the limiting-current response under the stated assay.",
+        "allowed_units": [
+          "V",
+          "mV"
+        ]
+      },
+      {
+        "id": "qb:current-density",
+        "label": "Current density",
+        "parent_ids": [
+          "qb:observable"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Electric current divided by specified electrode area; sign and area basis must be retained.",
+        "allowed_units": [
+          "A/m2",
+          "mA/cm2"
+        ]
+      },
+      {
+        "id": "qb:ph",
+        "label": "pH",
+        "parent_ids": [
+          "qb:observable"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Reported pH of the electrolyte, not a tissue pH.",
+        "allowed_units": [
+          "1"
+        ]
+      },
+      {
+        "id": "qb:concentration",
+        "label": "Concentration",
+        "parent_ids": [
+          "qb:observable"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Amount concentration; chemical identity is recorded in qualifier.",
+        "allowed_units": [
+          "mol/L",
+          "mol/m3"
+        ]
+      },
+      {
+        "id": "qb:scan-rate",
+        "label": "Potential scan rate",
+        "parent_ids": [
+          "qb:observable"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Applied potential change per unit time.",
+        "allowed_units": [
+          "V/s",
+          "mV/s"
+        ]
+      },
+      {
+        "id": "qb:rotation",
+        "label": "Rotation rate",
+        "parent_ids": [
+          "qb:observable"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Electrode rotation frequency converted to angular rate.",
+        "allowed_units": [
+          "rpm",
+          "rad/s"
+        ]
+      },
+      {
+        "id": "qb:temperature",
+        "label": "Temperature",
+        "parent_ids": [
+          "qb:observable"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Absolute temperature; a qualitative room-temperature label is not converted into a number.",
+        "allowed_units": [
+          "K"
+        ]
+      },
+      {
+        "id": "qb:sample-count",
+        "label": "Independent sample count",
+        "parent_ids": [
+          "qb:observable"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Count of independent experimental units, not technical repetitions.",
+        "allowed_units": [
+          "1"
+        ]
+      },
+      {
+        "id": "qb:loading",
+        "label": "Areal loading",
+        "parent_ids": [
+          "qb:observable"
+        ],
+        "kind": "concept",
+        "external_mappings": [],
+        "definition": "Platinum mass divided by geometric electrode area.",
+        "allowed_units": [
+          "ug/cm2"
+        ]
+      }
+    ],
+    "units": [
+      {
+        "id": "1",
+        "dimension": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "to_si": 1
+      },
+      {
+        "id": "V",
+        "dimension": [
+          1,
+          2,
+          -3,
+          -1,
+          0,
+          0,
+          0
+        ],
+        "to_si": 1
+      },
+      {
+        "id": "mV",
+        "dimension": [
+          1,
+          2,
+          -3,
+          -1,
+          0,
+          0,
+          0
+        ],
+        "to_si": 0.001
+      },
+      {
+        "id": "A",
+        "dimension": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "to_si": 1
+      },
+      {
+        "id": "A/m2",
+        "dimension": [
+          0,
+          -2,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "to_si": 1
+      },
+      {
+        "id": "mA/cm2",
+        "dimension": [
+          0,
+          -2,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "to_si": 10
+      },
+      {
+        "id": "V/s",
+        "dimension": [
+          1,
+          2,
+          -4,
+          -1,
+          0,
+          0,
+          0
+        ],
+        "to_si": 1
+      },
+      {
+        "id": "mV/s",
+        "dimension": [
+          1,
+          2,
+          -4,
+          -1,
+          0,
+          0,
+          0
+        ],
+        "to_si": 0.001
+      },
+      {
+        "id": "rad/s",
+        "dimension": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "to_si": 1
+      },
+      {
+        "id": "rpm",
+        "dimension": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "to_si": 0.10471975511965977
+      },
+      {
+        "id": "mol/m3",
+        "dimension": [
+          0,
+          -3,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "to_si": 1
+      },
+      {
+        "id": "mol/L",
+        "dimension": [
+          0,
+          -3,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "to_si": 1000
+      },
+      {
+        "id": "K",
+        "dimension": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "to_si": 1
+      },
+      {
+        "id": "J",
+        "dimension": [
+          1,
+          2,
+          -2,
+          0,
+          0,
+          0,
+          0
+        ],
+        "to_si": 1
+      },
+      {
+        "id": "eV",
+        "dimension": [
+          1,
+          2,
+          -2,
+          0,
+          0,
+          0,
+          0
+        ],
+        "to_si": 1.602176634e-19
+      },
+      {
+        "id": "eV/K",
+        "dimension": [
+          1,
+          2,
+          -2,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "to_si": 1.602176634e-19
+      },
+      {
+        "id": "ug/cm2",
+        "dimension": [
+          1,
+          -2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "to_si": 0.00001
+      }
+    ],
+    "experiments": [
+      {
+        "id": "EX-PT-RDE",
+        "fragment_id": "F04",
+        "source_id": "S-SANG2022",
+        "system_term_id": "qb:pt-np",
+        "process_term_id": "qb:orr",
+        "mechanism_term_ids": [
+          "qb:ciss"
+        ],
+        "biological_level": "abiotic",
+        "taxon_id": null,
+        "tissue_id": null,
+        "method": "rotating_disk_voltammetry",
+        "gas": "air_saturated",
+        "gas_locator": "Fig. 3B; Methods: RDE Measurements and Calculations",
+        "potential_reference": "RHE",
+        "arms": [
+          {
+            "id": "ARM-CHIRAL-PT",
+            "material": "Pt",
+            "modifier": "L-cysteine",
+            "chirality": "chiral"
+          },
+          {
+            "id": "ARM-RACEMIC-PT",
+            "material": "Pt",
+            "modifier": "DL-cysteine",
+            "chirality": "racemic_derived"
+          },
+          {
+            "id": "ARM-PTC",
+            "material": "Pt/C",
+            "modifier": null,
+            "chirality": "not_classified"
+          }
+        ],
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Fig. 3; Methods: RDE Measurements and Calculations"
+          }
+        ],
+        "scope_note": "General electrochemical Methods also describes O2 saturation; this record follows the RDE-specific caption and Methods. Not merged with static assays."
+      },
+      {
+        "id": "EX-SAM-LSV",
+        "fragment_id": "F04",
+        "source_id": "S-SANG2022",
+        "system_term_id": "qb:au-sam",
+        "process_term_id": "qb:orr",
+        "mechanism_term_ids": [
+          "qb:ciss"
+        ],
+        "biological_level": "abiotic",
+        "taxon_id": null,
+        "tissue_id": null,
+        "method": "static_linear_sweep_voltammetry",
+        "gas": "oxygen_saturated",
+        "gas_locator": "Fig. 1B; Electrochemical Tests",
+        "potential_reference": "RHE",
+        "arms": [
+          {
+            "id": "ARM-CYS",
+            "material": "Au",
+            "modifier": "L-cysteine",
+            "chirality": "chiral"
+          },
+          {
+            "id": "ARM-MPA",
+            "material": "Au",
+            "modifier": "3-mercaptopropionic acid",
+            "chirality": "achiral"
+          }
+        ],
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Fig. 1B; Electrochemical Tests"
+          }
+        ],
+        "scope_note": "Distinct static comparison; not a paired RDE result."
+      }
+    ],
+    "quantities": [
+      {
+        "id": "PT-PH",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": null,
+        "term_id": "qb:ph",
+        "role": "condition",
+        "value": 13,
+        "unit": "1",
+        "status": "reported",
+        "qualifier": null,
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Electrochemical Tests"
+          }
+        ]
+      },
+      {
+        "id": "PT-KOH",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": null,
+        "term_id": "qb:concentration",
+        "role": "condition",
+        "value": 0.1,
+        "unit": "mol/L",
+        "status": "reported",
+        "qualifier": "KOH",
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Electrochemical Tests"
+          }
+        ]
+      },
+      {
+        "id": "PT-TEMP",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": null,
+        "term_id": "qb:temperature",
+        "role": "condition",
+        "value": null,
+        "unit": "K",
+        "status": "not_reported",
+        "qualifier": "room temperature; no numeric value assigned",
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Electrochemical Tests"
+          }
+        ]
+      },
+      {
+        "id": "PT-N",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": null,
+        "term_id": "qb:sample-count",
+        "role": "design",
+        "value": null,
+        "unit": "1",
+        "status": "not_yet_checked",
+        "qualifier": "Supplement inaccessible",
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Main-text extraction only"
+          }
+        ]
+      },
+      {
+        "id": "SAM-PH",
+        "experiment_id": "EX-SAM-LSV",
+        "arm_id": null,
+        "term_id": "qb:ph",
+        "role": "condition",
+        "value": 13,
+        "unit": "1",
+        "status": "reported",
+        "qualifier": null,
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Electrochemical Tests"
+          }
+        ]
+      },
+      {
+        "id": "SAM-KOH",
+        "experiment_id": "EX-SAM-LSV",
+        "arm_id": null,
+        "term_id": "qb:concentration",
+        "role": "condition",
+        "value": 0.1,
+        "unit": "mol/L",
+        "status": "reported",
+        "qualifier": "KOH",
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Electrochemical Tests"
+          }
+        ]
+      },
+      {
+        "id": "SAM-TEMP",
+        "experiment_id": "EX-SAM-LSV",
+        "arm_id": null,
+        "term_id": "qb:temperature",
+        "role": "condition",
+        "value": null,
+        "unit": "K",
+        "status": "not_reported",
+        "qualifier": "room temperature; no numeric value assigned",
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Electrochemical Tests"
+          }
+        ]
+      },
+      {
+        "id": "SAM-N",
+        "experiment_id": "EX-SAM-LSV",
+        "arm_id": null,
+        "term_id": "qb:sample-count",
+        "role": "design",
+        "value": null,
+        "unit": "1",
+        "status": "not_yet_checked",
+        "qualifier": "Supplement inaccessible",
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Main-text extraction only"
+          }
+        ]
+      },
+      {
+        "id": "PT-SCAN",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": null,
+        "term_id": "qb:scan-rate",
+        "role": "condition",
+        "value": 5,
+        "unit": "mV/s",
+        "status": "reported",
+        "qualifier": null,
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Fig. 3B"
+          }
+        ]
+      },
+      {
+        "id": "PT-RPM",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": null,
+        "term_id": "qb:rotation",
+        "role": "condition",
+        "value": 1500,
+        "unit": "rpm",
+        "status": "reported",
+        "qualifier": null,
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Fig. 3B"
+          }
+        ]
+      },
+      {
+        "id": "PT-THRESHOLD",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": null,
+        "term_id": "qb:current-density",
+        "role": "endpoint_definition",
+        "value": -0.1,
+        "unit": "mA/cm2",
+        "status": "reported",
+        "qualifier": null,
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Fig. 3C"
+          }
+        ]
+      },
+      {
+        "id": "PT-LOADING",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": null,
+        "term_id": "qb:loading",
+        "role": "condition",
+        "value": 42,
+        "unit": "ug/cm2",
+        "status": "reported",
+        "qualifier": null,
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Electrochemical Tests"
+          }
+        ]
+      },
+      {
+        "id": "PT-ONSET",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": "ARM-CHIRAL-PT",
+        "term_id": "qb:onset",
+        "role": "outcome",
+        "value": 0.92,
+        "unit": "V",
+        "status": "reported",
+        "qualifier": null,
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Results, Fig. 3C"
+          }
+        ]
+      },
+      {
+        "id": "HALF-ARM-CHIRAL-PT",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": "ARM-CHIRAL-PT",
+        "term_id": "qb:halfwave",
+        "role": "outcome",
+        "value": 0.87,
+        "unit": "V",
+        "status": "reported",
+        "qualifier": null,
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Results, Fig. 3C"
+          }
+        ]
+      },
+      {
+        "id": "HALF-ARM-RACEMIC-PT",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": "ARM-RACEMIC-PT",
+        "term_id": "qb:halfwave",
+        "role": "outcome",
+        "value": 0.8,
+        "unit": "V",
+        "status": "reported",
+        "qualifier": null,
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Results, Fig. 3C"
+          }
+        ]
+      },
+      {
+        "id": "HALF-ARM-PTC",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": "ARM-PTC",
+        "term_id": "qb:halfwave",
+        "role": "outcome",
+        "value": 0.84,
+        "unit": "V",
+        "status": "reported",
+        "qualifier": null,
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Results, Fig. 3C"
+          }
+        ]
+      },
+      {
+        "id": "PT-DELTA-RACEMIC",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": null,
+        "term_id": "qb:onset",
+        "role": "contrast",
+        "value": 80,
+        "unit": "mV",
+        "status": "reported",
+        "qualifier": "chiral minus racemic-derived",
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Results, Fig. 3C"
+          }
+        ]
+      },
+      {
+        "id": "PT-DELTA-PTC",
+        "experiment_id": "EX-PT-RDE",
+        "arm_id": null,
+        "term_id": "qb:onset",
+        "role": "contrast",
+        "value": 30,
+        "unit": "mV",
+        "status": "reported",
+        "qualifier": "chiral minus Pt/C",
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Results, Fig. 3C"
+          }
+        ]
+      },
+      {
+        "id": "SAM-SCAN",
+        "experiment_id": "EX-SAM-LSV",
+        "arm_id": null,
+        "term_id": "qb:scan-rate",
+        "role": "condition",
+        "value": 50,
+        "unit": "mV/s",
+        "status": "reported",
+        "qualifier": null,
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Electrochemical Tests"
+          }
+        ]
+      },
+      {
+        "id": "SAM-THRESHOLD",
+        "experiment_id": "EX-SAM-LSV",
+        "arm_id": null,
+        "term_id": "qb:current-density",
+        "role": "endpoint_definition",
+        "value": 0.1,
+        "unit": "mA/cm2",
+        "status": "reported",
+        "qualifier": "magnitude in text; sign not harmonized with Pt caption",
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Fig. 1B"
+          }
+        ]
+      },
+      {
+        "id": "SAM-DELTA",
+        "experiment_id": "EX-SAM-LSV",
+        "arm_id": null,
+        "term_id": "qb:onset",
+        "role": "contrast",
+        "value": 0.17,
+        "unit": "V",
+        "status": "reported",
+        "qualifier": "approximate; chiral minus achiral",
+        "uncertainty": {
+          "status": "not_extracted",
+          "value": null
+        },
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Results, Fig. 1B"
+          }
+        ]
+      }
+    ],
+    "mathematical_spaces": [
+      {
+        "id": "SPACE-RATE",
+        "model_id": "M-CISS-RATE",
+        "family": "activated_rate_ratio",
+        "domain": "positive_temperature_equal_prefactors",
+        "expression": {
+          "op": "mul",
+          "args": [
+            {
+              "var": "g"
+            },
+            {
+              "op": "exp",
+              "args": [
+                {
+                  "op": "div",
+                  "args": [
+                    {
+                      "var": "epsilon"
+                    },
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "k_B"
+                        },
+                        {
+                          "var": "T"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "output_unit": "1",
+        "variables": [
+          {
+            "name": "g",
+            "unit": "1",
+            "lower": 0,
+            "lower_exclusive": true
+          },
+          {
+            "name": "epsilon",
+            "unit": "eV",
+            "lower": 0,
+            "lower_exclusive": false
+          },
+          {
+            "name": "k_B",
+            "unit": "eV/K",
+            "lower": 0,
+            "lower_exclusive": true
+          },
+          {
+            "name": "T",
+            "unit": "K",
+            "lower": 0,
+            "lower_exclusive": true
+          }
+        ],
+        "assumption_codes": [
+          "equal_prefactors",
+          "common_nonspin_barrier",
+          "spin_state_count_ratio_3",
+          "positive_stabilization_energy"
+        ],
+        "attribution": "curator_formalization",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Discussion: activation free-energy calculation"
+          }
+        ]
+      },
+      {
+        "id": "SPACE-P",
+        "model_id": "M-SPIN-P",
+        "family": "spin_polarization",
+        "domain": "nonnegative_currents_nonzero_sum",
+        "expression": {
+          "op": "div",
+          "args": [
+            {
+              "op": "sub",
+              "args": [
+                {
+                  "var": "I_parallel"
+                },
+                {
+                  "var": "I_antiparallel"
+                }
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "var": "I_parallel"
+                },
+                {
+                  "var": "I_antiparallel"
+                }
+              ]
+            }
+          ]
+        },
+        "output_unit": "1",
+        "variables": [
+          {
+            "name": "I_parallel",
+            "unit": "A",
+            "lower": 0,
+            "lower_exclusive": false
+          },
+          {
+            "name": "I_antiparallel",
+            "unit": "A",
+            "lower": 0,
+            "lower_exclusive": false
+          }
+        ],
+        "assumption_codes": [
+          "same_current_direction_convention"
+        ],
+        "attribution": "source_equation",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Eq. 3"
+          }
+        ]
+      }
+    ],
+    "model_checks": [
+      {
+        "id": "RATE-0",
+        "space_id": "SPACE-RATE",
+        "inputs": {
+          "g": 3,
+          "epsilon": 0,
+          "k_B": 0.00008617333262145,
+          "T": 298
+        },
+        "reported_output": 3,
+        "relative_tolerance": 0.05,
+        "tolerance_origin": "curator_review_trigger_not_measurement_uncertainty",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Discussion: rate enhancement examples"
+          }
+        ]
+      },
+      {
+        "id": "RATE-1",
+        "space_id": "SPACE-RATE",
+        "inputs": {
+          "g": 3,
+          "epsilon": 0.025,
+          "k_B": 0.00008617333262145,
+          "T": 298
+        },
+        "reported_output": 8.9,
+        "relative_tolerance": 0.05,
+        "tolerance_origin": "curator_review_trigger_not_measurement_uncertainty",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Discussion: rate enhancement examples"
+          }
+        ]
+      },
+      {
+        "id": "RATE-2",
+        "space_id": "SPACE-RATE",
+        "inputs": {
+          "g": 3,
+          "epsilon": 0.1,
+          "k_B": 0.00008617333262145,
+          "T": 298
+        },
+        "reported_output": 146,
+        "relative_tolerance": 0.05,
+        "tolerance_origin": "curator_review_trigger_not_measurement_uncertainty",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Discussion: rate enhancement examples"
+          }
+        ]
+      }
+    ],
+    "comparisons": [
+      {
+        "id": "CMP-PT-RACEMIC",
+        "experiment_id": "EX-PT-RDE",
+        "intervention_arm_id": "ARM-CHIRAL-PT",
+        "comparator_arm_id": "ARM-RACEMIC-PT",
+        "quantity_id": "PT-DELTA-RACEMIC",
+        "claim_id": "C06",
+        "direction": "higher",
+        "interpretation": "reported_electrochemical_contrast",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Fig. 3C"
+          }
+        ]
+      },
+      {
+        "id": "CMP-PT-PTC",
+        "experiment_id": "EX-PT-RDE",
+        "intervention_arm_id": "ARM-CHIRAL-PT",
+        "comparator_arm_id": "ARM-PTC",
+        "quantity_id": "PT-DELTA-PTC",
+        "claim_id": "C10",
+        "direction": "higher",
+        "interpretation": "reported_electrochemical_contrast",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Results, Fig. 3C"
+          }
+        ]
+      },
+      {
+        "id": "CMP-SAM",
+        "experiment_id": "EX-SAM-LSV",
+        "intervention_arm_id": "ARM-CYS",
+        "comparator_arm_id": "ARM-MPA",
+        "quantity_id": "SAM-DELTA",
+        "claim_id": "C09",
+        "direction": "higher",
+        "interpretation": "reported_electrochemical_contrast",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Results, Fig. 1B"
+          }
+        ]
+      }
+    ],
+    "evidence_features": [
+      {
+        "fragment_id": "F04",
+        "claim_id": "C06",
+        "study_type": "abiotic_comparative_experiment",
+        "comparator_present": true,
+        "independent_replication": "not_assessed",
+        "sample_size": "not_extracted",
+        "uncertainty": "not_extracted",
+        "direct_spin_measurement_in_this_assay": "not_established",
+        "human_review": "pending",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Fig. 3; extraction scope"
+          }
+        ]
+      }
+    ],
+    "translation": [
+      {
+        "fragment_id": "F04",
+        "intended_use": "biomedical_mechanism_research",
+        "tested_level": "abiotic",
+        "target_level": "organism",
+        "biological_validation": "not_established_here",
+        "clinical_evidence": "not_established_here",
+        "cost_of_practice": "not_assessed",
+        "decision": "research_only",
+        "blocking_codes": [
+          "abiotic_to_biological_gap",
+          "mechanism_not_uniquely_identified",
+          "no_clinical_validation"
+        ],
+        "next_test_type": "biological_mechanism_discrimination",
+        "attribution": "curator_assessment",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Discussion; study design"
+          }
+        ]
+      }
+    ],
+    "audit_notes": [
+      {
+        "code": "DISPLAYED_LOG_ZERO",
+        "scope": "SPACE-RATE",
+        "status": "needs_source_verification",
+        "note": "PMC HTML contains ln(0); undefined. Executable formalization uses the prose statement of zero spin entropy. PDF visual confirmation unavailable.",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Discussion: chiral activation free-energy display"
+          }
+        ]
+      },
+      {
+        "code": "SECONDARY_POLARIZATION",
+        "scope": "SPACE-P",
+        "status": "not_primary_measurement",
+        "note": "Fig. 4A polarization values are attributed to reference 22; not imported as new measurements.",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Fig. 4A"
+          }
+        ]
+      },
+      {
+        "code": "SOURCE_SCOPE",
+        "scope": "F04",
+        "status": "partial_extraction",
+        "note": "Supplement PDF inaccessible. No independent replication or citation-adoption audit.",
+        "references": [
+          {
+            "source_id": "S-SANG2022",
+            "locator": "Supplementary Material"
+          }
+        ]
+      }
+    ]
+  },
+  "articles": [
+    {
+      "archive_record_version": "1.0",
+      "fragment_id": "F05",
+      "source_id": "S-MEYER2008",
+      "bibliographic": {
+        "authors": [
+          "Matthew P. Meyer",
+          "Diana R. Tomchick",
+          "Judith P. Klinman"
+        ],
+        "year": 2008,
+        "journal": "PNAS",
+        "doi": "10.1073/pnas.0710643105",
+        "full_text_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2234106/"
+      },
+      "tags": [
+        "qb:enzyme_catalysis",
+        "qb:hydrogen_transfer",
+        "qb:hydrogen_tunneling",
+        "qb:kinetic_isotope_effect",
+        "qb:protein_dynamics"
+      ],
+      "system": {
+        "level": "purified_enzyme",
+        "organism_label": "soybean",
+        "enzyme": "SLO-1",
+        "substrates": [
+          "protio-linoleic acid",
+          "11,11-dideuterio-linoleic acid"
+        ],
+        "intervention": "site_directed_mutagenesis",
+        "site": 553
+      },
+      "conditions": [
+        {
+          "context": "enzyme_kinetics",
+          "parameter": "temperature_interval",
+          "value": [
+            10,
+            50
+          ],
+          "unit": "degC",
+          "locator": "Results: Kinetic Parameters"
+        },
+        {
+          "context": "enzyme_kinetics",
+          "parameter": "readout_wavelength",
+          "value": 234,
+          "unit": "nm",
+          "locator": "Results: Kinetic Parameters"
+        },
+        {
+          "context": "crystallography",
+          "parameter": "collection_temperature",
+          "value": 100,
+          "unit": "K",
+          "locator": "Methods: Crystallization and Data Collection"
+        }
+      ],
+      "mathematical_space": {
+        "axes": [
+          "variant",
+          "isotope",
+          "absolute_temperature"
+        ],
+        "observables": [
+          {
+            "id": "qb:turnover_rate",
+            "symbol": "k_cat",
+            "unit": "s^-1"
+          },
+          {
+            "id": "qb:kinetic_isotope_effect",
+            "symbol": "k_cat,H/k_cat,D",
+            "unit": "1"
+          },
+          {
+            "id": "qb:activation_energy_isotope_difference",
+            "symbol": "E_a(D)-E_a(H)",
+            "unit": "kcal/mol"
+          }
+        ],
+        "model_families": [
+          "Arrhenius_parameterization",
+          "environmentally_coupled_tunneling"
+        ],
+        "model_execution": "not_requested",
+        "model_parameters_status": "not_sampled"
+      },
+      "results": [
+        {
+          "fragment_id": "F05",
+          "source_id": "S-MEYER2008",
+          "variant": "WT",
+          "observable_id": "qb:activation_energy_isotope_difference",
+          "value": 0.9,
+          "unit": "kcal/mol",
+          "uncertainty_value": 0.2,
+          "uncertainty_kind": "not_verified",
+          "result_type": "experimental_fit",
+          "data_origin": "prior_study_reused",
+          "origin_doi": "10.1021/ja012205t",
+          "locator": "Table 1, experimental E_a(D) - E_a(H) column",
+          "status": "reported"
+        },
+        {
+          "fragment_id": "F05",
+          "source_id": "S-MEYER2008",
+          "variant": "I553V",
+          "observable_id": "qb:activation_energy_isotope_difference",
+          "value": 2.6,
+          "unit": "kcal/mol",
+          "uncertainty_value": 0.5,
+          "uncertainty_kind": "not_verified",
+          "result_type": "experimental_fit",
+          "data_origin": "current_study",
+          "origin_doi": "10.1073/pnas.0710643105",
+          "locator": "Table 1, experimental E_a(D) - E_a(H) column",
+          "status": "reported"
+        },
+        {
+          "fragment_id": "F05",
+          "source_id": "S-MEYER2008",
+          "variant": "I553L",
+          "observable_id": "qb:activation_energy_isotope_difference",
+          "value": 3.4,
+          "unit": "kcal/mol",
+          "uncertainty_value": 0.6,
+          "uncertainty_kind": "not_verified",
+          "result_type": "experimental_fit",
+          "data_origin": "current_study",
+          "origin_doi": "10.1073/pnas.0710643105",
+          "locator": "Table 1, experimental E_a(D) - E_a(H) column",
+          "status": "reported"
+        },
+        {
+          "fragment_id": "F05",
+          "source_id": "S-MEYER2008",
+          "variant": "I553A",
+          "observable_id": "qb:activation_energy_isotope_difference",
+          "value": 4,
+          "unit": "kcal/mol",
+          "uncertainty_value": 0.3,
+          "uncertainty_kind": "not_verified",
+          "result_type": "experimental_fit",
+          "data_origin": "prior_study_reused",
+          "origin_doi": "10.1021/ja012205t",
+          "locator": "Table 1, experimental E_a(D) - E_a(H) column",
+          "status": "reported"
+        },
+        {
+          "fragment_id": "F05",
+          "source_id": "S-MEYER2008",
+          "variant": "I553G",
+          "observable_id": "qb:activation_energy_isotope_difference",
+          "value": 5.3,
+          "unit": "kcal/mol",
+          "uncertainty_value": 0.7,
+          "uncertainty_kind": "not_verified",
+          "result_type": "experimental_fit",
+          "data_origin": "current_study",
+          "origin_doi": "10.1073/pnas.0710643105",
+          "locator": "Table 1, experimental E_a(D) - E_a(H) column",
+          "status": "reported"
+        }
+      ],
+      "evidence": {
+        "design": [
+          "mutagenesis",
+          "isotope_substitution",
+          "temperature_series",
+          "xray_crystallography"
+        ],
+        "raw_data_review": "not_done",
+        "independent_replication": "not_assessed",
+        "supplement_review": "not_done",
+        "global_grade": null
+      },
+      "relevance": {
+        "category": "basic_mechanistic_knowledge",
+        "biomedical_transfer": "not_established_by_this_sample",
+        "utility_parameters": null
+      },
+      "provenance": {
+        "checked_on": "2026-11-08",
+        "extractor": "assistant",
+        "human_review": "pending",
+        "locators": [
+          "Table 1 and footnotes",
+          "Results: Kinetic Parameters",
+          "Methods: Enzyme Kinetics",
+          "Methods: Crystallization and Data Collection"
+        ]
+      },
+      "related_links": [
+        {
+          "doi": "10.1021/ja012205t",
+          "role": "origin_of_reused_WT_and_I553A_data"
+        },
+        {
+          "doi": "10.1016/j.chemphys.2005.05.017",
+          "role": "earlier_model_parameters"
+        },
+        {
+          "doi": "10.1021/jp0758420",
+          "role": "alternative_modelling_route_screened_not_extracted"
+        }
+      ]
+    }
+  ],
+  "surface_vocabulary": [
+    {
+      "id": "qb:enzyme_catalysis",
+      "definition": "Enzyme catalysis",
+      "parent_id": null,
+      "namespace": "local_qb",
+      "external_mapping": null
+    },
+    {
+      "id": "qb:hydrogen_transfer",
+      "definition": "Hydrogen transfer",
+      "parent_id": "qb:enzyme_catalysis",
+      "namespace": "local_qb",
+      "external_mapping": null
+    },
+    {
+      "id": "qb:hydrogen_tunneling",
+      "definition": "Hydrogen tunnelling",
+      "parent_id": "qb:hydrogen_transfer",
+      "namespace": "local_qb",
+      "external_mapping": null
+    },
+    {
+      "id": "qb:kinetic_isotope_effect",
+      "definition": "Ratio of matched H/D turnover rates",
+      "parent_id": null,
+      "namespace": "local_qb",
+      "external_mapping": null
+    },
+    {
+      "id": "qb:protein_dynamics",
+      "definition": "Protein conformational motions",
+      "parent_id": null,
+      "namespace": "local_qb",
+      "external_mapping": null
+    },
+    {
+      "id": "qb:turnover_rate",
+      "definition": "Steady-state catalytic turnover rate",
+      "parent_id": null,
+      "namespace": "local_qb",
+      "external_mapping": null
+    },
+    {
+      "id": "qb:activation_energy_isotope_difference",
+      "definition": "Fitted E_a(D) minus E_a(H)",
+      "parent_id": null,
+      "namespace": "local_qb",
+      "external_mapping": null
+    }
+  ]
+}

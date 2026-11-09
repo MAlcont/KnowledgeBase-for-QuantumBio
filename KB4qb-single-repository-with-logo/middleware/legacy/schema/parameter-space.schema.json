@@ -1,0 +1,968 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "expression": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "var": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "var"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "enum": [
+                "add",
+                "sub",
+                "mul",
+                "div",
+                "exp"
+              ]
+            },
+            "args": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/expression"
+              },
+              "minItems": 1,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "op",
+            "args"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "vocabulary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "parent_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "kind": {
+            "enum": [
+              "concept"
+            ]
+          },
+          "external_mappings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "allowed_units": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "parent_ids",
+          "kind",
+          "external_mappings",
+          "definition",
+          "allowed_units"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dimension": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "minItems": 7,
+            "maxItems": 7
+          },
+          "to_si": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "id",
+          "dimension",
+          "to_si"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "experiments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fragment_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "system_term_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "process_term_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mechanism_term_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "biological_level": {
+            "enum": [
+              "abiotic",
+              "purified_biomolecule",
+              "cell",
+              "tissue",
+              "organism",
+              "human"
+            ]
+          },
+          "taxon_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tissue_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "method": {
+            "enum": [
+              "rotating_disk_voltammetry",
+              "static_linear_sweep_voltammetry"
+            ]
+          },
+          "gas": {
+            "enum": [
+              "air_saturated",
+              "oxygen_saturated"
+            ]
+          },
+          "gas_locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "potential_reference": {
+            "enum": [
+              "RHE"
+            ]
+          },
+          "arms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "material": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "modifier": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "chirality": {
+                  "enum": [
+                    "chiral",
+                    "achiral",
+                    "racemic_derived",
+                    "not_classified"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "material",
+                "modifier",
+                "chirality"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "source_id",
+                "locator"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "scope_note": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "fragment_id",
+          "source_id",
+          "system_term_id",
+          "process_term_id",
+          "mechanism_term_ids",
+          "biological_level",
+          "taxon_id",
+          "tissue_id",
+          "method",
+          "gas",
+          "gas_locator",
+          "potential_reference",
+          "arms",
+          "references",
+          "scope_note"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "quantities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "experiment_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "arm_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "term_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "enum": [
+              "condition",
+              "design",
+              "endpoint_definition",
+              "outcome",
+              "contrast"
+            ]
+          },
+          "value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "reported",
+              "not_reported",
+              "not_measured",
+              "not_yet_checked"
+            ]
+          },
+          "qualifier": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "uncertainty": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "enum": [
+                  "not_extracted",
+                  "reported"
+                ]
+              },
+              "value": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "status",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "source_id",
+                "locator"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "experiment_id",
+          "arm_id",
+          "term_id",
+          "role",
+          "value",
+          "unit",
+          "status",
+          "qualifier",
+          "uncertainty",
+          "references"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "reported"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "value": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "mathematical_spaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "model_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "family": {
+            "enum": [
+              "activated_rate_ratio",
+              "spin_polarization"
+            ]
+          },
+          "domain": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expression": {
+            "$ref": "#/$defs/expression"
+          },
+          "output_unit": {
+            "type": "string",
+            "minLength": 1
+          },
+          "variables": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "lower": {
+                  "type": "number"
+                },
+                "lower_exclusive": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "name",
+                "unit",
+                "lower",
+                "lower_exclusive"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "assumption_codes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "attribution": {
+            "enum": [
+              "source_equation",
+              "curator_formalization"
+            ]
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "source_id",
+                "locator"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "model_id",
+          "family",
+          "domain",
+          "expression",
+          "output_unit",
+          "variables",
+          "assumption_codes",
+          "attribution",
+          "references"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "model_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "space_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "inputs": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
+            }
+          },
+          "reported_output": {
+            "type": "number"
+          },
+          "relative_tolerance": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "tolerance_origin": {
+            "type": "string",
+            "minLength": 1
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "source_id",
+                "locator"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "space_id",
+          "inputs",
+          "reported_output",
+          "relative_tolerance",
+          "tolerance_origin",
+          "references"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "comparisons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "experiment_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "intervention_arm_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "comparator_arm_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "quantity_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "direction": {
+            "enum": [
+              "higher",
+              "lower",
+              "no_difference"
+            ]
+          },
+          "interpretation": {
+            "enum": [
+              "reported_electrochemical_contrast"
+            ]
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "source_id",
+                "locator"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "experiment_id",
+          "intervention_arm_id",
+          "comparator_arm_id",
+          "quantity_id",
+          "claim_id",
+          "direction",
+          "interpretation",
+          "references"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "evidence_features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fragment_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "study_type": {
+            "enum": [
+              "abiotic_comparative_experiment"
+            ]
+          },
+          "comparator_present": {
+            "type": "boolean"
+          },
+          "independent_replication": {
+            "enum": [
+              "not_assessed",
+              "supported",
+              "not_supported"
+            ]
+          },
+          "sample_size": {
+            "enum": [
+              "not_extracted",
+              "extracted"
+            ]
+          },
+          "uncertainty": {
+            "enum": [
+              "not_extracted",
+              "extracted"
+            ]
+          },
+          "direct_spin_measurement_in_this_assay": {
+            "enum": [
+              "not_established",
+              "established"
+            ]
+          },
+          "human_review": {
+            "enum": [
+              "pending",
+              "completed"
+            ]
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "source_id",
+                "locator"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "fragment_id",
+          "claim_id",
+          "study_type",
+          "comparator_present",
+          "independent_replication",
+          "sample_size",
+          "uncertainty",
+          "direct_spin_measurement_in_this_assay",
+          "human_review",
+          "references"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "translation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fragment_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "intended_use": {
+            "enum": [
+              "biomedical_mechanism_research"
+            ]
+          },
+          "tested_level": {
+            "enum": [
+              "abiotic",
+              "purified_biomolecule",
+              "cell",
+              "tissue",
+              "organism",
+              "human"
+            ]
+          },
+          "target_level": {
+            "enum": [
+              "organism",
+              "human"
+            ]
+          },
+          "biological_validation": {
+            "enum": [
+              "not_established_here",
+              "established_here"
+            ]
+          },
+          "clinical_evidence": {
+            "enum": [
+              "not_established_here",
+              "established_here"
+            ]
+          },
+          "cost_of_practice": {
+            "enum": [
+              "not_assessed",
+              "assessed"
+            ]
+          },
+          "decision": {
+            "enum": [
+              "research_only",
+              "review_required"
+            ]
+          },
+          "blocking_codes": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "abiotic_to_biological_gap",
+                "mechanism_not_uniquely_identified",
+                "no_clinical_validation"
+              ]
+            }
+          },
+          "next_test_type": {
+            "enum": [
+              "biological_mechanism_discrimination"
+            ]
+          },
+          "attribution": {
+            "enum": [
+              "curator_assessment"
+            ]
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "source_id",
+                "locator"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "fragment_id",
+          "intended_use",
+          "tested_level",
+          "target_level",
+          "biological_validation",
+          "clinical_evidence",
+          "cost_of_practice",
+          "decision",
+          "blocking_codes",
+          "next_test_type",
+          "attribution",
+          "references"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "audit_notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "minLength": 1
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "source_id",
+                "locator"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "code",
+          "scope",
+          "status",
+          "note",
+          "references"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "vocabulary",
+    "units",
+    "experiments",
+    "quantities",
+    "mathematical_spaces",
+    "model_checks",
+    "comparisons",
+    "evidence_features",
+    "translation",
+    "audit_notes"
+  ],
+  "additionalProperties": false
+}

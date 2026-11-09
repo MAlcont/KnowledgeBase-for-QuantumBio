@@ -1,0 +1,6 @@
+﻿fragment_id,source_id,variant,observable_id,value,unit,uncertainty_value,uncertainty_kind,result_type,data_origin,origin_doi,locator,status
+F05,S-MEYER2008,WT,qb:activation_energy_isotope_difference,0.9,kcal/mol,0.2,not_verified,experimental_fit,prior_study_reused,10.1021/ja012205t,"Table 1, experimental E_a(D) - E_a(H) column",reported
+F05,S-MEYER2008,I553V,qb:activation_energy_isotope_difference,2.6,kcal/mol,0.5,not_verified,experimental_fit,current_study,10.1073/pnas.0710643105,"Table 1, experimental E_a(D) - E_a(H) column",reported
+F05,S-MEYER2008,I553L,qb:activation_energy_isotope_difference,3.4,kcal/mol,0.6,not_verified,experimental_fit,current_study,10.1073/pnas.0710643105,"Table 1, experimental E_a(D) - E_a(H) column",reported
+F05,S-MEYER2008,I553A,qb:activation_energy_isotope_difference,4.0,kcal/mol,0.3,not_verified,experimental_fit,prior_study_reused,10.1021/ja012205t,"Table 1, experimental E_a(D) - E_a(H) column",reported
+F05,S-MEYER2008,I553G,qb:activation_energy_isotope_difference,5.3,kcal/mol,0.7,not_verified,experimental_fit,current_study,10.1073/pnas.0710643105,"Table 1, experimental E_a(D) - E_a(H) column",reported

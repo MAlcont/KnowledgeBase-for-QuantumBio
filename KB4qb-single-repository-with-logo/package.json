@@ -1,0 +1,11 @@
+{
+  "name": "kb4qb-prototype",
+  "private": true,
+  "version": "0.3.1",
+  "type": "module",
+  "scripts": {
+    "test": "node --test middleware/tests/*.test.mjs",
+    "build": "node middleware/tools/build-site.mjs"
+  },
+  "engines": {"node": ">=22"}
+}
