@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "id": "INV-2026-11-26-F02-F03-ROS",
+  "question": "F02 and F03 both invoke reactive oxygen species. In each paper, what chemical species or class did the authors actually measure or infer, in which system and compartment, and on what timescale? Does the shared vocabulary support a common mechanism, or does it connect two distinct experimental questions?",
+  "created_at": "2026-11-26",
+  "status": "exploratory_source_review_incomplete",
+  "editorial_note": "../editorial-notes/f02-f03-reactive-oxygen-species.md",
+  "repository_context": {
+    "repository": "MAlcont/KnowledgeBase-for-QuantumBio",
+    "branch": "book-kqbarc-hive",
+    "branch_head_at_start": "5821bb2597854a75fca241fb47e4e1357b7881dc",
+    "archive_fragments": ["F02", "F03"],
+    "source_ids": ["S-S2018", "S-A2014"],
+    "fragment_titles": {
+      "F02": "Cryptochrome-dependent magnetic response",
+      "F03": "Light activation of a regenerative signal"
+    },
+    "fragment_links": [
+      "https://github.com/MAlcont/KnowledgeBase-for-QuantumBio/blob/book-kqbarc-hive/archive/data/kb.json",
+      "https://github.com/MAlcont/KnowledgeBase-for-QuantumBio/blob/book-kqbarc-hive/archive/README.md"
+    ]
+  },
+  "original_question": {
+    "text": "F02 and F03 both invoke reactive oxygen species. In each paper, what chemical species or class did the authors actually measure or infer, in which system and compartment, and on what timescale? Does the shared vocabulary support a common mechanism, or does it connect two distinct experimental questions?",
+    "anatomical_scope": "Human physiology is the motivating frame, but these fragments concern cell-culture and preclinical dental-repair experiments. The paper-level species, tissues, compartments and conditions require primary-source verification.",
+    "species_and_system_scope": "F02 archive claim: mammalian cell cultures expressing/testing human cryptochrome in a pulsed-field experiment; exact cell line and preparations are not confirmed here. F03 archive claim: dental stem-cell and animal dentin-regeneration preclinical systems; animal species, model details and exact preparation require paper review. Neither should be described as a human intervention on this record.",
+    "observable_and_timescale": "The archive describes changes in ROS and ROS associated with light/TGF-β1 activation but supplies no chemical-species-resolved observable, units, assay protocol, time course, or repeated-measure design. These remain unknown; no stochastic model is justified from the available record.",
+    "discriminating_observation": "Compare the named probes/assays and controls in the original methods and supplements, their sampling compartment and time after exposure, then test whether the same chemically identified species is necessary in both systems. A generic ROS signal alone cannot distinguish that proposition."
+  },
+  "dimensions": {
+    "physiology": {
+      "human_anchor": "No specific human organ-level process has been established by the material reviewed in this session. F03 concerns dental repair models, but the archive's summary does not identify which cells or animal species in each experiment.",
+      "cross_site_transfer": "Not established. Do not infer a body-wide or tissue-to-tissue ROS signal from either fragment.",
+      "systems_actually_reported_in_archive": {
+        "F02": "Mammalian cell cultures; archive says pulsed magnetic-field exposure and intracellular ROS response. Exact cell line, species, subcellular compartment and preparation are pending source audit.",
+        "F03": "Dental stem-cell differentiation and animal dentin regeneration; archive says low-power laser, ROS and latent TGF-β1 activation. Exact species, tissue/cell preparations and assay compartment are pending source audit."
+      }
+    },
+    "mathematics": {
+      "observable": "No validated assay observable or chemical identity is available from the source records inspected.",
+      "units_and_scale": "Not stated in the archive claims; time/length scale, units, exposure schedule, sampling interval and uncertainty are not extracted.",
+      "variation": "The archive reports treatment-associated change, not enough to determine within-system repeated measurements versus between-sample contrasts.",
+      "model": "No stochastic or kinetic model added. Required parameters and underlying measurements are unavailable."
+    },
+    "hypotheses_and_journal_library": {
+      "proposed_explanations": [
+        "F02: archive identifies spin-dependent radical-pair chemistry as an author-proposed explanation; cellular ROS observation does not directly resolve it.",
+        "F03: archive links light, ROS and latent TGF-β1 activation; the exact proposed chemical route and alternatives require the paper's methods and discussion."
+      ],
+      "alternatives": "Distinct assay responses or distinct photochemical and magnetic-field-dependent processes could both be summarized as ROS without sharing a causal mechanism. Assay artifacts and other ROS-generating pathways remain to be checked against each paper.",
+      "discriminating_observation": "Species-selective measurements and perturbations of the proposed pathway under matched, documented exposure and sampling conditions; the existing archive does not establish such a cross-study test.",
+      "papers": [
+        {"source_id": "S-S2018", "citation": "Sherrard et al. (2018), Low-intensity electromagnetic fields induce human cryptochrome to modulate intracellular reactive oxygen species", "doi_url": "https://doi.org/10.1371/journal.pbio.2006229"},
+        {"source_id": "S-A2014", "citation": "Arany et al. (2014), Photoactivation of endogenous latent transforming growth factor-β1 directs dental stem cell differentiation for regeneration", "doi_url": "https://doi.org/10.1126/scitranslmed.3008234"}
+      ]
+    },
+    "evidence": {
+      "measured_vs_inferred": "Current archive claims describe ROS-related observations and an author-proposed radical-pair account for F02. They do not provide assay chemistry, raw signal, controls, or enough method detail to identify a specific ROS. F03 archive claim is abstract-level and does not resolve what ROS was directly measured versus inferred.",
+      "conditions_and_scope": "F02 cellular pulsed-field exposure; F03 low-power laser and preclinical dental-repair systems. These are not established as matched conditions. Preserve ambiguity and do not equate the terms with a single molecule or pathway.",
+      "source_access_limitation": "This session's available repository tools retrieve GitHub resources but do not fetch arbitrary DOI/publisher pages or make outbound HTTP requests. The primary papers, methods, figures and supplements were therefore not opened or independently checked in this session. Exact source-level species, assay, compartment and timescale are unresolved; archive statements are leads, not a substitute for paper review."
+    },
+    "translational_relevance": {
+      "furthest_archive_scope": "F02 cell-culture experiment; F03 preclinical cell and animal studies. No human intervention, comparator or clinical outcome is established in the inspected archive record.",
+      "population_intervention_comparator_outcome": "Not extracted or independently verified. Do not imply human therapeutic efficacy."
+    },
+    "source_record": {
+      "vocabulary_choices": [
+        {"term": "reactive oxygen species", "use": "Retain as the papers' broad wording, not as a resolved chemical identity."},
+        {"term": "TGFB1 / TGF-β1", "use": "F03 archive identifies latent TGF-β1 activation; distinguish gene symbol TGFB1 from the precursor/latent protein complex and active cytokine when selecting an entity."},
+        {"term": "cryptochrome", "use": "F02 title refers to human cryptochrome; do not silently choose CRY1, CRY2, a gene, or a protein without verifying the experiment's construct and entity."}
+      ],
+      "biomiv": {
+        "documentation_url": "https://biomiv.com/ai-agents",
+        "schema_url": "https://biomiv.com/openapi.json",
+        "network_endpoint": "https://biomiv.com/api/v1/healthspan/network/connect",
+        "relation_vocabulary_url": "https://biomiv.com/api/v1/healthspan/network/vocabulary",
+        "vocabulary_version": "unknown_not_retrievable_with_available_session_tools",
+        "requests_made": [],
+        "request_status": "No Biomiv request was sent. The available tools do not issue external HTTP requests; exact parameter syntax, current vocabulary version and response fields could not be verified against live documentation.",
+        "candidate_lookup": "After reading the live docs, consider one narrowly chosen entity pair only if the paper supports exact identities. Do not send generic ROS as if it were a chemical species. A F02 query depends on verifying whether the paper's relevant entity is CRY1, CRY2, or another explicitly studied form. Keep tissues, species, timing and design in this local record because the network lookup may not express them."
+      },
+      "prior_tgfb1_ros_lookup": {
+        "checked": "2026-11-26",
+        "finding": "No earlier investigation log or saved exact Biomiv request/response was present in the working branch's repository files or investigation path. The earlier lookup mentioned in the task is not available in this session context, so its matched identity, citation and relevance cannot be asserted or refreshed reliably.",
+        "action": "Did not repeat the lookup. If recovered, compare its actual citation tissue and intervention with F03 dental light/TGF-β1 context before treating it as comparable."
+      },
+      "exact_api_request_and_response": "None. No endpoint was called; no matched IDs, relation direction, intermediate node, source database or reference was returned. This is not an unmatched term, empty path, or failed request.",
+      "archive_verification": "Working-branch archive/data/kb.json contains F02 and F03 and links them to S-S2018 and S-A2014 respectively. F02 already has a curator-proposed 'Shared ROS theme; no demonstrated common intervention pathway' link to F03 with no references; this investigation treats that as an unverified hypothesis, not a source-backed finding. Current archive status for both is unassessed."
+    }
+  },
+  "dated_observations": [
+    {
+      "date": "2026-11-26",
+      "type": "archive_check",
+      "observation": "Verified F02/F03 IDs, titles, claim IDs, source IDs, evidence status and existing curator-proposed F02-to-F03 link against archive/data/kb.json on book-kqbarc-hive. F02 claim C03 points to S-S2018 Results Figures 2–3; C04 points to Discussion. F03 claim C05 points only to S-A2014 Abstract. The archive describes F03 source review as abstract_checked.",
+      "interpretation": "The repository itself indicates asymmetric source depth; it does not support a species-specific comparison yet."
+    },
+    {
+      "date": "2026-11-26",
+      "type": "source_access",
+      "observation": "Primary papers and Biomiv live docs could not be fetched with the tools available in this session. No method/figure/supplement passages were independently checked; no Biomiv request was made.",
+      "interpretation": "The result is an explicitly incomplete, source-limited investigation, not a completed assay audit. Keep exploratory conclusions out of curated claims."
+    }
+  ],
+  "interpretation": {
+    "conclusion": "The shared archive label 'ROS' presently connects two different experimental questions: a pulsed-field-associated intracellular response in cell cultures (F02) and light-associated signaling in dental-repair models (F03). With no source-verified assay identity, it does not establish that the same chemical species, compartment, timescale or mechanism is involved.",
+    "editorial_status": "Provisional; source review required before curation.",
+    "remaining_questions": [
+      "Which assay/probe and controls did each original paper use, and what chemical species can that assay distinguish?",
+      "What cell line/species, compartment, exposure schedule and sampling time were used in each result?",
+      "Does F03 directly measure ROS or infer it from intervention/perturbation, and what happens to latent versus active TGF-β1?",
+      "Can the prior TGFB1–ROS Biomiv citation be recovered, and does it actually concern dental tissue, light intervention and the relevant molecular form?",
+      "What do the current Biomiv schema and relation vocabulary version document for entity matching and relation direction?"
+    ]
+  },
+  "provenance": {
+    "archive_file": "../archive/data/kb.json",
+    "archive_source_records": ["S-S2018", "S-A2014"],
+    "canonical_archive_changed": false,
+    "curated_claims_changed": false
+  }
+}
