@@ -5,39 +5,44 @@
 <p align="center"><strong>A body / organism is a knowledge base for quantum biology.</strong></p>
 
 # KB4qb
-
 A small literature compass for quantum biology. One repository, with separate middleware and research archive folders.
-
 - `middleware/`: read-only interface, source-link validation, CSV and language-model-context exports.
 - `archive/`: five research fragments, journal links, surface parameters and provenance.
+Licensing remains undecided.
 
-## Publish on GitHub
+# kqbarc-hive · Public inference notebook as a table @ https://www.quantumbiology.xyz
 
-1. Create one repository named `KB4qb` with default branch `main`.
-2. Upload the contents of this folder to its root, including `.github/workflows/pages.yml`.
-3. Select **Settings → Pages → Source → GitHub Actions**.
-4. Run **Actions → Build and publish KB4qb**, or push a commit to `main`.
+We start with a question about a human body. Where does a process occur? What varies there, and on what timescale? What observation could distinguish two explanations? This repository uses the surface parameters of KB4qb to follow such questions from physiology through biophysics to the literature and, where available, human intervention evidence. The original sample papers are starting points. A new investigation can begin with any well-specified tissue or cross-tissue question.
 
-The workflow tests the middleware, builds the current archive and publishes `dist/`. The site automatically opens the archive. No second repository, external archive URL, dependency installation or account integration is required.
+The purpose of keeping this notebook public is to let another reader retrace an inference, challenge a term, or resume an open question. The choice of a search term is itself part of the inference.
 
-## Preview locally
+## Three levels of an investigation
 
-Requires Node 22+ and Python 3. From this folder:
+1. **The researcher asks.** Preserve the original question, its anatomical scope and the observation that would help answer it.
+2. **Codex translates.** Read existing investigations. Identify candidate entities and relationships, explain the choices, and keep plausible alternatives visible. A complex question can yield several focused lookups. Keep tissue, species, timescale and study design as criteria for reading the papers wherever the API cannot express them.
+3. **Biomiv returns JSON.** The network endpoint accepts one named entity and an optional second entity. Record the exact request, the returned identities, paths, relationship wording and source references. Use Biomiv’s versioned vocabulary to interpret direction, sign and the aspect affected. A one-edge path describes proximity in the graph. Whether a source demonstrates a direct molecular mechanism is a separate question.
 
-```sh
-npm test
-npm run build
-python3 -m http.server 8000 --directory dist
-```
+## Surface parameters
 
-Open http://localhost:8000. Do not open index.html directly via file://.
+| KB4qb dimension | Question the record answers |
+|---|---|
+| Physiology | Which human organ, tissue, cell type or compartment anchors the question? For a cross-tissue question, what passes between the sites, and what is measured at each? Record the species and system actually studied. |
+| Mathematics | Which physiological quantity varies? Define its observable, units and timescale. Name a stochastic model or distribution when justified, and distinguish measured variation, model-inferred quantities and uncertainty in the estimate. |
+| Hypotheses & journal library | Which interpretations could explain the variation? Record competing explanations, the papers that motivate them and an observation that could distinguish them. |
+| Evidence | What did each study measure under its particular conditions? Which interpretations fit those measurements and the wider biophysics? Keep contrary observations and unresolved alternatives visible. |
+| Translational relevance | What evidence reaches the scale of a human intervention? Record the population, intervention, comparator and outcome where available. If the inquiry finds only model, animal or human observational evidence, state that scope. |
+| Source record | Preserve the provenance of each inference, including the original question, vocabulary mapping, lookup date, endpoint and parameters, matched identifiers, returned relations, citations and the curator’s interpretation. |
 
-## Focus: grow the samples
+The **inference vocabulary** runs through all six dimensions. The source record preserves how ordinary language became a KB4qb concept, how that concept became a Biomiv entity or relation, and which parts of the question remained for a human to interpret.
 
-Add a source-linked fragment in `archive/`, preserving experimental context, units, provenance and unknowns. Commit it. The deployment workflow rebuilds the delivery bundle automatically. Hand-edit canonical data, not the generated bundle. Keep code changes limited to real extraction or usability needs.
+## Example · From tissue physiology to a ferritin question
 
-The archive currently contains F01–F05. Mitochondria, wound healing and magnetic targets are the next planned focused samples; no new research was added during this consolidation.
+Suppose the question is whether variation in iron handling within a particular tissue helps explain variation in a circulating measurement. First specify the tissue, the measurement and the timescale. Ferritin may emerge as a candidate from this work. Record why it was selected and whether the paper concerns a circulating biomarker, a tissue measurement or a particular protein subunit. Those choices can lead to different searches.
 
-No field-completeness score, clinical interpretation, live Google Sheets sync, model API or automatic evidence grade is provided. CSV exports and model-context packages are functional. Historical mathematical checks are retained in the legacy material but are not run as scientific verdicts in the interface.
+If the question is about fluctuations over time, ask whether the paper repeatedly measured the same system. Differences among people at a single time point answer a different question. A Biomiv relationship can point to a paper worth reading. The paper’s design determines which question it can answer.
 
-Verification: data and interaction checks passed; browser visual verification was unavailable in the preparation environment. This package has not been deployed to GitHub. Licensing remains undecided.
+## How to resume a question
+
+The proposed record layout is one versioned JSON file per investigation under `investigations/`. Each file carries a stable ID, links to any relevant KB4qb fragments, the question and dated lookups, papers checked, current interpretation and next open question. Keep an unmatched name, an empty search and a failed request distinguishable. On a new prompt, read the related record first and append new observations with their dates. Promote a claim into the curated archive when its supporting source and scope have been reviewed.
+
+[Original KB4qb archive](https://github.com/MAlcont/KnowledgeBase-for-QuantumBio/tree/main/archive) · [Biomiv agent documentation](https://biomiv.com/ai-agents) · [API schema](https://biomiv.com/openapi.json) · [Relation vocabulary](https://biomiv.com/api/v1/healthspan/network/vocabulary)
