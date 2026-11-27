@@ -28,6 +28,16 @@ The purpose of keeping this notebook public is to let another reader retrace an 
 - **Rate of coherence (0–3).** Compare the result with the original prompt and the distilled quest. Give one point each for matching the two elements, addressing the proposed relationship and covering the anatomical setting. Name any main gap in plain language. Leave empty or failed lookups unscored.
 - **Comment.** Give the most relevant biophysical formula when justified and define its terms. Add one plain-language sentence about what the interaction could mean for the larger anatomical process.
 
+## End-to-end reliability test
+
+Start with **100 quests across 10 areas of human physiology**, with 10 per area. Cover distinct mechanisms and include established links, open questions, and plausible pairs with no expected support. Before looking at Biomiv, record each quest's anatomical setting, expected evidence outcome, and the sources or criteria a reviewer can use. Use the pilot to refine the rubric, then freeze it for a separate **1,000-quest benchmark**. With independent quests, the overall rate has a rough worst-case 95% margin of error of ±3 percentage points. An area with 100 quests is closer to ±10 points.
+
+1. **Run and record.** Save the original quest, the first two-entity interpretation, and why the pair was chosen. Archive each complete, dated Biomiv JSON reply with its exact query. Track revised queries separately. Distinguish unresolved names, empty replies, and request failures.
+2. **Review.** Have two reviewers independently assess **accuracy** against the cited evidence and **coherence** against the pair, relationship, and anatomical setting. Record whether a formula or reaction is justified, and assign the 3×3 node weights after reviewing the reply. Preserve both reviewers' judgments and record how disagreements were resolved. A justified conclusion of insufficient evidence can pass the accuracy check.
+3. **Check the outputs.** Append the reviewed outcome to the [inference ledger](investigations/inferences.jsonl) and verify that it links to the archived reply. For supported connections, check whether reviewers place the linked elements and relation in the same branch of the [element tree](visualisation.md). Replay the saved replies to check that the recorded terms, weights, and tree placement can be traced to the same inputs.
+
+Set acceptance thresholds before the benchmark. Report accuracy, coherence, and taxonomy agreement separately, overall and by area. Include first-query results and counts for empty, failed, and unscored lookups so graph coverage stays visible alongside reliability.
+
 ## Surface parameters
 
 | KB4qb dimension | Question the record answers |
