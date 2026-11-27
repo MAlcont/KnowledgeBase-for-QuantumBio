@@ -19,8 +19,14 @@ The purpose of keeping this notebook public is to let another reader retrace an 
 ## Three levels of an investigation
 
 1. **The researcher asks.** Preserve the original question, its anatomical scope and the observation that would help answer it.
-2. **Codex translates.** Read existing investigations. Identify candidate entities and relationships, explain the choices, and keep plausible alternatives visible. A complex question can yield several focused lookups. Keep tissue, species, timescale and study design as criteria for reading the papers wherever the API cannot express them.
-3. **Biomiv returns JSON.** The network endpoint accepts one named entity and an optional second entity. Record the exact request, the returned identities, paths, relationship wording and source references. Use Biomiv’s versioned vocabulary to interpret direction, sign and the aspect affected. A one-edge path describes proximity in the graph. Whether a source demonstrates a direct molecular mechanism is a separate question.
+2. **Codex frames a physiology quest.** Read related investigations and distill the question to the two most relevant physiological elements, such as a pair of molecules. Say why each matters and ask how their interaction could help explain a process in a cell, tissue or organ. Keep plausible alternatives visible. Use tissue, species, timescale and study design to read the papers wherever the API cannot express them.
+3. **Biomiv returns JSON.** Query the pair through the network endpoint, which accepts one named entity and an optional second entity. Record the exact request, the returned identities, paths, relationship wording and source references. Use Biomiv’s versioned vocabulary to interpret direction, sign and the aspect affected. A one-edge path describes proximity in the graph. Whether a source demonstrates a direct molecular mechanism is a separate question.
+
+### Reading the Biomiv result
+
+- **Accuracy.** Judge how well the cited evidence supports the proposed connection in that physiological setting. Name the Biomiv entities and relation, then briefly say whether the evidence is direct, indirect, conflicting or unverified.
+- **Rate of coherence (0–3).** Compare the result with the original prompt and the distilled quest. Give one point each for matching the two elements, addressing the proposed relationship and covering the anatomical setting. Name any main gap in plain language. Leave empty or failed lookups unscored.
+- **Comment.** Give the most relevant biophysical formula when justified and define its terms. Add one plain-language sentence about what the interaction could mean for the larger anatomical process.
 
 ## Surface parameters
 
@@ -37,7 +43,7 @@ The **inference vocabulary** runs through all six dimensions. The source record 
 
 ## Example · From tissue physiology to a ferritin question
 
-Suppose the question is whether variation in iron handling within a particular tissue helps explain variation in a circulating measurement. First specify the tissue, the measurement and the timescale. Ferritin may emerge as a candidate from this work. Record why it was selected and whether the paper concerns a circulating biomarker, a tissue measurement or a particular protein subunit. Those choices can lead to different searches.
+Suppose the question is whether variation in iron handling within a particular tissue helps explain variation in a circulating measurement. First specify the tissue, the measurement and the timescale. One quest might ask how ferritin and the labile iron pool in liver cells contribute to the liver’s iron buffering. Record why each was selected and whether the paper concerns a circulating biomarker, a tissue measurement or a particular protein subunit. Those choices can lead to different searches.
 
 If the question is about fluctuations over time, ask whether the paper repeatedly measured the same system. Differences among people at a single time point answer a different question. A Biomiv relationship can point to a paper worth reading. The paper’s design determines which question it can answer.
 
