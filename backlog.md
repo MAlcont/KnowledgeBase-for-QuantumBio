@@ -1,6 +1,14 @@
 # Hive backlog
 
-Resume on `book-kqbarc-hive`. Grow coverage of human physiology one quest at a time. The priority is to query Biomiv and leave a trace that the next chat can follow.
+Resume from the current tip of `book-kqbarc-hive`. Grow coverage of human physiology one quest at a time. The priority is to query Biomiv and leave a trace that the next chat can follow.
+
+## Current research thread
+
+Start with respiration. Follow electrons from succinate through complex II, ubiquinone, complex III and cytochrome c to complex IV, where oxygen is reduced to water. Ask which electron, proton or spin effect changes a measurable rate, and whether that rate matters to oxygen use or ATP production. [Respiration branch](visualisation.md)
+
+- The cytochrome c → MT-CO2 link anchors the electron-transfer question. The tunneling model comes from separate literature. Oxygen spin chemistry and a specific contribution from proton tunneling remain open at complex IV. [Ledger](investigations/inferences.jsonl#L1-L2)
+- Isotopes can trace atoms or test a change in rate. Human CA2 has a measured hydrogen isotope effect in enzyme studies and belongs to CO₂ transport in blood. The mitochondrial Biomiv lookups returned no isotope-specific rates. [Ledger](investigations/inferences.jsonl#L4-L7)
+- Alzheimer’s cortex samples had less MT-CO2 and SDHB, with mitochondrial content unresolved. MT-CO2 knockdown impaired complex IV respiration and blunted the near-infrared response in cells. The identity of the light absorber remains open. [Ledger](investigations/inferences.jsonl#L3)
 
 ## Per quest
 
