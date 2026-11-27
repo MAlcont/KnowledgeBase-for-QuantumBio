@@ -1,46 +1,30 @@
-# Hive inference visualisation
+# Hive visualisation
 
-This snapshot shows 1 recorded inference and 2 node votes. [Source ledger](investigations/inferences.jsonl)
+**Quest.** What are the fundamental reactions of human respiration?
 
-## Accuracy × coherence
+**Interpretation and pair.** How does mitochondrial complex IV use oxygen as the terminal electron acceptor? Query `oxygen` and `MT-CO1`. [Biomiv JSON](https://biomiv.com/api/v1/healthspan/network/connect?a=oxygen&b=MT-CO1)
 
-Each cell counts node votes. Accuracy runs down the rows and coherence across the columns.
-
-| Accuracy ↓ / Coherence → | 1 | 2 | 3 |
-| --- | ---: | ---: | ---: |
-| 1 | 0 | 0 | 0 |
-| 2 | 0 | 1 | 0 |
-| 3 | 0 | 1 | 0 |
-
-## Complex IV terminal oxygen reduction
-
-How does human mitochondrial complex IV use oxygen as the terminal electron acceptor?
+**Biomiv inference map**
 
 ```mermaid
 flowchart LR
-    A["dioxygen"] -->|is a substrate of| B["Cytochrome c oxidase subunit 1"]
+    O["Dioxygen"] -->|is a substrate of| C["MT-CO1 · Complex IV subunit 1"]
 ```
 
-**Biomiv link.** Dioxygen is a substrate of Cytochrome c oxidase subunit 1 (UniProt, RHEA:11436). [Recorded query](https://biomiv.com/api/v1/healthspan/network/connect?a=oxygen&b=MT-CO1)
+**Judgment.** The substrate link fits intact complex IV. Coherence is **2/3**. Biomiv returned the pair and relationship. The mitochondrial setting came from the quest.
 
-**Reaction.** `O₂ + 4 e⁻ + 4 H⁺ → 2 H₂O`
+**Reaction.** `O₂ + 4 e⁻ + 4 H⁺ → 2 H₂O`. Complex IV takes electrons from cytochrome c and uses them to turn oxygen into water.
 
-At the end of the mitochondrial electron transport chain, complex IV transfers electrons from cytochrome c to oxygen and makes water. This keeps electrons flowing and helps sustain the proton gradient that drives ATP synthesis.
+## Weighted elements
 
-Terminal reduction half-reaction of intact complex IV. Reduced cytochrome c supplies the electrons. Vectorial proton translocation is outside this equation.
+The curator assigns each node a weight on two 1–3 axes after reviewing the Biomiv reply.
 
-**Quest context.** Homo sapiens · inner mitochondrial membrane · oxidative phosphorylation.
+| Accuracy ↓ / Coherence → | 1 | 2 | 3 |
+| --- | --- | --- | --- |
+| 1 | — | — | — |
+| 2 | — | Dioxygen | — |
+| 3 | — | MT-CO1 | — |
 
-**Accuracy.** Dioxygen is a substrate of complex IV. MT-CO1 is its catalytic core subunit. The graph classifies dioxygen as a plant compound, while the physiological vocabulary classifies it as a biochemical.
+Dioxygen gets accuracy 2 because Biomiv labels it a plant compound. MT-CO1 gets accuracy 3 because Biomiv identifies the catalytic subunit. Both get coherence 2 because the reply leaves the setting unspecified.
 
-**Pair coherence.** 2/3. The edge resolves both entities and identifies oxygen as a substrate. The reply does not specify the human mitochondrial compartment.
-
-| Node | Accuracy | Coherence | Reason |
-| --- | ---: | ---: | --- |
-| dioxygen | 2 | 2 | Correct identity and substrate role. The Biomiv category needs qualification and the anatomical context is absent. |
-| Cytochrome c oxidase subunit 1 | 3 | 2 | The node correctly identifies the catalytic subunit and provides the substrate link. The anatomical context is absent. |
-
-**References**
-
-- [Reaction reference returned by Biomiv](https://www.rhea-db.org/rhea/11436) (live verification unavailable)
-- [Independent physiology reference](https://openstax.org/books/biology-2e/pages/7-4-oxidative-phosphorylation)
+[Reaction reference cited by Biomiv](https://www.rhea-db.org/rhea/11436) · [Inference ledger](investigations/inferences.jsonl)
