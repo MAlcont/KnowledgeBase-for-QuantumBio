@@ -18,9 +18,13 @@ The purpose of keeping this notebook public is to let another reader retrace an 
 
 ## From quest to reviewed inference
 
-1. **The researcher asks.** Preserve the original question, its anatomical scope and the observation that would help answer it.
-2. **Codex frames a physiology quest.** Read related investigations and translate the original question into a proposed relationship between two named entities from Biomiv’s network of genes, proteins, enzymes, biochemicals, plant compounds and drug compounds. Choose the pair for its relevance to the physiological mechanism and explain why each entity matters. Ask how the relationship could help explain a process in a cell, tissue or organ. Keep tissue, species, timescale and study design as criteria for reading the papers.
-3. **Biomiv returns JSON.** Query the pair through the network endpoint. If it returns no path, use individual lookups where useful to check how the two names resolve. Record the exact request, matched identities, paths, relationship wording and source references. Use Biomiv’s versioned vocabulary to interpret direction, sign and the aspect affected. A one-edge path describes proximity in the graph. Whether a source demonstrates a direct molecular mechanism is a separate question.
+Use the same five stages for any physiology topic, including digestion, endocrinology and respiration. Start with the current question and record each stage in the dated [quest process log](backlog.md#quest-process-log).
+
+1. **Quest.** Preserve the original question, its anatomical scope and the observation that would help answer it.
+2. **Elements.** Translate the question into a proposed relationship between two named entities from Biomiv’s network of genes, proteins, enzymes, biochemicals, plant compounds and drug compounds. Record the pair and why it fits before looking at the reply. Consult related earlier investigations when available.
+3. **Biomiv.** Query the pair through the network endpoint or cite a dated reply that answers the same lookup. Keep exact requests, full JSON replies and statuses, including any retries. Use Biomiv’s vocabulary to interpret direction, sign and the aspect affected. A one-edge path describes proximity in the graph. Whether a source demonstrates a direct molecular mechanism is a separate question.
+4. **Judgment.** Judge the accuracy of the proposed explanation against the evidence, then score how well the lookup answers the original quest. Record the reaction or formula, brief explanation, and 3×3 node votes when supported. See the rubric below.
+5. **Taxonomy.** Append the result to the ledger and add supported links under the closest physiological branch in [`visualisation.md`](visualisation.md). Use short relation labels and brief notes. Record the branch added to or the evidence gap that deferred the addition. Reserve regrouping and deduplication for a dedicated pass.
 
 ### Reading the Biomiv result
 

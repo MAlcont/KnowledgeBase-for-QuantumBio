@@ -1,33 +1,23 @@
 # Hive backlog
 
-Resume from the current tip of `book-kqbarc-hive`. Grow coverage of human physiology one quest at a time. The priority is to query Biomiv and leave a trace that the next chat can follow.
+Resume from the current tip of `book-kqbarc-hive` and take the topic from the user's new question. Apply the [same five-stage pipeline](README.md#from-quest-to-reviewed-inference) to every quest. Use earlier rows to recover evidence for related questions.
 
-## Current research thread
+## Quest process log
 
-Start with respiration. Follow electrons from succinate through complex II, ubiquinone, complex III and cytochrome c to complex IV, where oxygen is reduced to water. Ask which electron, proton or spin effect changes a measurable rate, and whether that rate matters to oxygen use or ATP production. [Respiration branch](visualisation.md)
+Append one dated row per user quest with the same five stage columns below. The [inference ledger](investigations/inferences.jsonl) keeps the detailed records. When a quest takes several pairs, link their ledger rows from the same log row. Record the actual outcome of each stage, including incomplete runs.
 
-- The cytochrome c → MT-CO2 link anchors the electron-transfer question. The tunneling model comes from separate literature. Oxygen spin chemistry and a specific contribution from proton tunneling remain open at complex IV. [Ledger](investigations/inferences.jsonl#L1-L2)
-- Isotopes can trace atoms or test a change in rate. Human CA2 has a measured hydrogen isotope effect in enzyme studies and belongs to CO₂ transport in blood. The mitochondrial Biomiv lookups returned no isotope-specific rates. [Ledger](investigations/inferences.jsonl#L4-L7)
-- Alzheimer’s cortex samples had less MT-CO2 and SDHB, with mitochondrial content unresolved. MT-CO2 knockdown impaired complex IV respiration and blunted the near-infrared response in cells. The identity of the light absorber remains open. [Ledger](investigations/inferences.jsonl#L3)
+1. **Quest.** Keep the original wording and physiological setting in the ledger. Link the row from a short title in the log.
+2. **Elements.** Name the two entities and record the proposed relationship and the reason for choosing them before the lookup.
+3. **Biomiv.** Log the result as a direct link, indirect path, no path, unmatched name or failed request. Keep exact requests and dates in the ledger and link to each full reply under [`investigations/biomiv/`](investigations/biomiv/). Label reused replies and keep retries distinct.
+4. **Judgment.** Record how well the evidence supports the proposed explanation and score the original quest against the returned pair, relationship and anatomical context. Report pair coherence out of 3, with empty or failed lookups unscored. Keep a supported reaction or formula, a brief plain-language explanation, and short reasons for the manual 3×3 node votes in the ledger. Identify evidence from outside Biomiv.
+5. **Taxonomy.** Log where you appended a supported connection in the [element tree](visualisation.md). When an addition is deferred, give the reason. Keep additions short and save regrouping for a dedicated pass.
 
-## Per quest
+| Date | Quest | Elements | Biomiv | Judgment | Taxonomy |
+| --- | --- | --- | --- | --- | --- |
+| 2026-11-27 | [Fundamental reactions of human respiration](investigations/inferences.jsonl#L1) | Oxygen / MT-CO1 | Direct substrate link. Selected fields preserved. | Oxygen reduction supported at intact complex IV. Coherence 2/3. | Added oxygen reduction under Human respiration → Complex IV. |
+| 2026-11-27 | [Why quantum biology involves respiration](investigations/inferences.jsonl#L2) | CYCS / MT-CO2 | [Direct interaction](investigations/biomiv/2026-11-27-cycs-mt-co2.json) and [subunit context](investigations/biomiv/2026-11-27-mt-co2-mt-co1.json). | Interaction supported. The electron-transfer model came from separate literature. Coherence 1/3. | Added the cytochrome c link under Complex IV, then added the distance formula. |
+| 2026-11-27 | [MT-CO2 study and respiration](investigations/inferences.jsonl#L3) | MT-CO2 / SDHB | [Indirect path](investigations/biomiv/2026-11-27-mt-co2-sdhb.json) through oxidative phosphorylation. | Shared pathway supported. The supplied abstract reports lower protein abundance in Alzheimer’s cortex, with mitochondrial content unresolved. Coherence 2/3. | Added the Complexes II and IV branch. |
+| 2026-11-27 | [Natural oxygen isotopes in respiration](investigations/inferences.jsonl#L4) | Oxygen-18 / MT-CO1 | [Unmatched isotope name](investigations/biomiv/2026-11-27-oxygen-18-mt-co1.json) and two name checks. | Logged the labelled form of the known oxygen-reduction reaction. Isotope query unscored. | Deferred because the isotope label was unmatched. |
+| 2026-11-27 | [Respiratory genes and isotope sensitivity](investigations/inferences.jsonl#L5-L7) | Heavy water / MT-CO1 · CO₂ / CA2 · succinic acid / SDHA | Seven archived replies. Ordinary CA2 and SDHA reaction links, with no isotope-specific links in the tested pairs. | Ordinary pairs 2/3. Isotope queries unscored. Independent CA2 enzyme evidence described a hydrogen isotope effect. | Added the CA2 reaction under CO₂ transport in blood and the SDHA link under Complexes II and IV. |
 
-1. Read related entries in the [inference ledger](investigations/inferences.jsonl). Keep the original question, then name two Biomiv elements and the relationship they could explain in the physiological setting.
-2. Reuse a dated reply when it still fits. For every new lookup, record the exact query and date, save the full JSON under [`investigations/biomiv/`](investigations/biomiv/), and link it from the ledger. Keep empty replies and record failed attempts.
-3. Return three things with the evidence links. Append the result using the existing ledger format.
-   - A **chemical reaction or biophysical formula**, when supported. State the gap if neither can be justified.
-   - A **brief explanation** in plain language. Say which relationship Biomiv returned and where the physiological interpretation comes from.
-   - A **3×3 accuracy × coherence grid**. Give each node a manual 1–3 vote on each axis with a short reason. Keep the separate 0–3 pair coherence score in the ledger. Leave votes unscored where the reply gives no basis for them.
-4. Use the [element tree](visualisation.md) to organise the work. Add new links under the closest physiological branch with a brief relation label. Save regrouping and deduplication for a dedicated taxonomy pass.
-
-## Action trace
-
-After a quest, add one dated line with the pair, what was saved or added, and any open evidence question. Link to the ledger or raw reply for detail.
-
-- **2026-11-27** · Oxygen / MT-CO1. Logged the complex IV oxygen-reduction reaction and added its tree branch. The first [ledger entry](investigations/inferences.jsonl#L1) preserves selected Biomiv fields.
-- **2026-11-27** · CYCS / MT-CO2. Logged the electron-transfer model and added the interaction to the same branch. Archived the [primary reply](investigations/biomiv/2026-11-27-cycs-mt-co2.json) and the [complex IV subunit lookup](investigations/biomiv/2026-11-27-mt-co2-mt-co1.json). The [ledger entry](investigations/inferences.jsonl#L2) cites separate literature for the tunneling interpretation.
-- **2026-11-27** · Added this handoff. Continue with the next quest and keep taxonomy additions small.
-- **2026-11-27** · CYCS / MT-CO2. Added the ledger’s distance formula to the [element tree](visualisation.md). The cloud proxy blocked the [Cells paper suggested for the next MT-CO2 quest](https://www.mdpi.com/2073-4409/15/21/1941). Review the abstract or full text before choosing the new pair.
-- **2026-11-27** · MT-CO2 / SDHB. Reviewed the supplied abstract and [archived the Biomiv reply](investigations/biomiv/2026-11-27-mt-co2-sdhb.json). Added the shared oxidative phosphorylation branch and logged the [tissue and cell findings](investigations/inferences.jsonl#L3). Mitochondrial content in the cortex samples remains unknown.
-- **2026-11-27** · Oxygen-18 / MT-CO1. Archived the [unmatched isotope query](investigations/biomiv/2026-11-27-oxygen-18-mt-co1.json) and two name checks. The [ledger entry](investigations/inferences.jsonl#L4) records isotope bookkeeping for the known oxygen-reduction reaction and leaves the replies unscored.
-- **2026-11-27** · MT-CO1, CA2 and SDHA. Archived seven replies and logged the [ordinary respiratory links and isotope checks](investigations/inferences.jsonl#L5-L7). Added the CA2 and SDHA reaction links to the tree. Biomiv recognised heavy water on its own and supplied no isotope-specific rate evidence for the three candidates.
+The handoff first appeared in `b240b5a`. The cloud proxy blocked the [Cells article](https://www.mdpi.com/2073-4409/15/21/1941) when it was first suggested. The MT-CO2 / SDHB quest used the abstract the user later supplied.
