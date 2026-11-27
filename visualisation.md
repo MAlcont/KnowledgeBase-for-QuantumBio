@@ -12,5 +12,11 @@
     - [SDHB (complex II iron–sulfur subunit)](https://biomiv.com/api/v1/healthspan/network/connect?a=SDHB)
       - [shares the oxidative phosphorylation pathway with](https://biomiv.com/api/v1/healthspan/network/connect?a=MT-CO2&b=SDHB) [MT-CO2 (complex IV subunit II)](https://biomiv.com/api/v1/healthspan/network/connect?a=MT-CO2). Both were less abundant in Alzheimer’s temporal cortex than in cognitively normal controls. [Study](https://www.mdpi.com/2073-4409/15/21/1941)
       - [Succinate oxidation](https://enzyme.expasy.org/EC/1.3.5.1) · `Succinate + Q → fumarate + QH₂`
+    - [Succinic acid](https://biomiv.com/api/v1/healthspan/network/connect?a=succinic+acid)
+      - [participates in a reaction catalysed by](https://biomiv.com/api/v1/healthspan/network/connect?a=succinic+acid&b=SDHA) [SDHA (complex II catalytic subunit)](https://biomiv.com/api/v1/healthspan/network/connect?a=SDHA). SDHA oxidises succinate to fumarate.
+  - **CO₂ transport in blood**
+    - [Carbon dioxide](https://biomiv.com/api/v1/healthspan/network/connect?a=carbon+dioxide)
+      - [participates in a reaction catalysed by](https://biomiv.com/api/v1/healthspan/network/connect?a=carbon+dioxide&b=CA2) [CA2 (carbonic anhydrase II)](https://biomiv.com/api/v1/healthspan/network/connect?a=CA2). Blood can carry CO₂ as bicarbonate and release it in the lungs.
+      - [CO₂ hydration](https://www.rhea-db.org/rhea/10748) · `CO₂ + H₂O ⇌ HCO₃⁻ + H⁺`
 
 [Inference ledger](investigations/inferences.jsonl)
