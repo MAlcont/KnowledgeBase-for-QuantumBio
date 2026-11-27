@@ -8,5 +8,10 @@ const dist=path.join(root,'dist');
 await fs.rm(dist,{recursive:true,force:true});
 await fs.cp(path.join(root,'middleware/web'),dist,{recursive:true});
 await fs.copyFile(path.join(root,'archive/archive.json'),path.join(dist,'archive.json'));
+try {
+  await fs.copyFile(path.join(root,'investigations/inferences.jsonl'),path.join(dist,'inferences.jsonl'));
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error;
+}
 await fs.writeFile(path.join(dist,'.nojekyll'),'');
 console.log('Built dist/: interface + generated archive. Source folders remain separate.');

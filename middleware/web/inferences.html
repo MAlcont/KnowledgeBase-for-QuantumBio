@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inference browser · KB4qb Hive</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./inferences.css">
+</head>
+<body class="hive">
+  <header>
+    <a class="brand" href="./">KB4<span>qb</span><small>Hive</small></a>
+    <a href="./">Literature archive</a>
+  </header>
+  <main>
+    <div class="hive-title">
+      <h1>Inference browser</h1>
+      <label class="hive-import">Open vocabulary file
+        <input id="ledger-file" type="file" accept=".jsonl,application/jsonl,text/plain">
+      </label>
+    </div>
+    <p id="hive-status" role="status">Loading inferences…</p>
+    <p id="hive-error" role="alert" hidden></p>
+    <div id="hive-content" hidden>
+      <section class="hive-controls" aria-label="Filter quests">
+        <label>Search <input id="quest-search" type="search" placeholder="Quest, entity, reaction or reference"></label>
+        <label>Process <select id="quest-process"></select></label>
+        <label>Anatomy <select id="quest-anatomy"></select></label>
+        <label>Evidence <select id="quest-evidence"></select></label>
+      </section>
+      <div class="hive-grid">
+        <div class="hive-column">
+          <section class="hive-card" aria-labelledby="quest-title">
+            <div class="hive-card-heading">
+              <h2 id="quest-title">Quests</h2>
+              <span id="quest-count" role="status"></span>
+            </div>
+            <p id="vote-filter" hidden></p>
+            <div class="hive-scroll">
+              <table class="hive-quests">
+                <thead><tr><th scope="col">Quest</th><th scope="col">Setting</th><th scope="col">Pair coherence</th></tr></thead>
+                <tbody id="quest-rows"></tbody>
+              </table>
+            </div>
+            <div class="hive-pagination" id="quest-pagination" hidden>
+              <button id="quest-prev" type="button">Previous</button>
+              <span id="quest-page"></span>
+              <button id="quest-next" type="button">Next</button>
+            </div>
+          </section>
+          <section class="hive-card" id="quest-detail" aria-label="Selected inference"></section>
+        </div>
+        <div class="hive-column">
+          <section class="hive-card" aria-labelledby="votes-title">
+            <div class="hive-card-heading"><h2 id="votes-title">Node votes</h2><button id="vote-clear" type="button" hidden>Clear vote filter</button></div>
+            <p class="hive-meta">Each cell counts node votes in the selected scope. Choose a cell to inspect its votes.</p>
+            <table class="hive-matrix" aria-label="Node votes by accuracy and coherence">
+              <thead><tr><th scope="col">Accuracy ↓ Coherence →</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th></tr></thead>
+              <tbody id="vote-rows"></tbody>
+            </table>
+            <button id="vote-unscored" class="hive-unscored" type="button" aria-pressed="false"></button>
+          </section>
+          <section class="hive-card" aria-labelledby="network-title">
+            <h2 id="network-title">Local network</h2>
+            <label>Focus entity <select id="quest-entity"></select></label>
+            <div id="network-edges"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="./inferences.js"></script>
+</body>
+</html>
